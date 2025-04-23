@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://altanettsider.no
+
+# Sitemaps
+Sitemap: https://altanettsider.no/sitemap.xml
