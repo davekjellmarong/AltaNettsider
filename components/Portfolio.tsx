@@ -2,36 +2,17 @@ import Image from "next/image";
 
 const portfolioItems = [
   {
-    title: "Alta Café",
-    category: "Restaurant",
-    image:
-      "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&q=80",
+    title: "DinDrenering",
+    category: "Drenering",
+    image: "/dindrenering.png",
     description:
-      "En moderne nettside for en lokal kafé i Alta, med online meny og reservasjonssystem.",
+      "Et nettsted for å finne lokale bedrifter som kan hjelpe utføre drenere.",
   },
   {
-    title: "Nordlys Tours",
-    category: "Reiseliv",
-    image:
-      "https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&q=80",
-    description:
-      "Nettside for et lokalt reiseselskap spesialisert på nordlysturer i Finnmark.",
-  },
-  {
-    title: "Alta Håndverkere",
-    category: "Håndverk",
-    image:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80",
-    description:
-      "Profesjonell nettside for et lokalt håndverkerselskap, med prosjektgalleri og kontaktskjema.",
-  },
-  {
-    title: "Finnmark Fitness",
-    category: "Helse",
-    image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80",
-    description:
-      "Responsiv nettside for et treningssenter i Alta, med timeplan og medlemssystem.",
+    title: "Minihjørne",
+    category: "Brukte barneklær",
+    image: "/minihjorne.png",
+    description: "En plattform for kjøp og salg av brukte barneklær.",
   },
 ];
 

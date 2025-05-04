@@ -1,6 +1,7 @@
 import type React from "react";
 import "@/app/globals.css";
 import type { Metadata } from "next";
+import ReactQueryProvider from "@/src/providers/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "AltaNettsider - Lokale nettsider for din bedrift i Alta",
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="no">
-      <body>{children}</body>
+      <body>
+        <ReactQueryProvider>
+          <main>{children}</main>
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }
