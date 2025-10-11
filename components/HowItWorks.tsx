@@ -37,7 +37,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section bg-white">
+    <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-alta-dark mb-4">Hvordan det fungerer</h2>
@@ -51,22 +51,27 @@ const HowItWorks = () => {
           <div className="hidden md:block absolute top-16 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-alta-blue via-alta-blue-light to-alta-blue opacity-30"></div>
           
           {steps.map((step, index) => (
-            <div key={index} className="relative text-center group">
-              {/* Step number circle */}
-              <div className="mx-auto w-16 h-16 bg-alta-blue text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 relative z-10 group-hover:bg-alta-blue-light transition-colors duration-300">
-                {step.number}
-              </div>
+            <div key={index} className="relative text-center group cursor-pointer">
+              {/* Hover card background */}
+              <div className="absolute inset-0 bg-white rounded-xl shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2 -z-10"></div>
               
-              {/* Icon */}
-              <div className="flex justify-center text-alta-blue mb-4 group-hover:text-alta-blue-light transition-colors duration-300">
-                {step.icon}
+              <div className="relative p-6">
+                {/* Step number circle */}
+                <div className="mx-auto w-16 h-16 bg-alta-blue text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 relative z-10 group-hover:bg-alta-blue-light group-hover:scale-110 transition-all duration-300 shadow-lg">
+                  {step.number}
+                </div>
+                
+                {/* Icon */}
+                <div className="flex justify-center text-alta-blue mb-4 group-hover:text-alta-blue-light transition-colors duration-300">
+                  {step.icon}
+                </div>
+                
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-alta-dark mb-2 group-hover:text-alta-blue transition-colors duration-300">
+                  {step.title}
+                </h3>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{step.description}</p>
               </div>
-              
-              {/* Content */}
-              <h3 className="text-xl font-semibold text-alta-dark mb-2 group-hover:text-alta-blue transition-colors duration-300">
-                {step.title}
-              </h3>
-              <p className="text-gray-600">{step.description}</p>
             </div>
           ))}
         </div>
@@ -75,9 +80,22 @@ const HowItWorks = () => {
           <p className="text-gray-600 mb-6">
             Klar for å komme i gang?
           </p>
-          <Link href="/kontakt" className="btn-primary">
-            Start her
-          </Link>
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Link href="/kontakt" className="btn-primary">
+              Start her
+            </Link>
+          </div>
+          
+          {/* Mobile CTA - more prominent */}
+          <div className="md:hidden space-y-4">
+            <Link href="/kontakt" className="btn-primary text-lg py-4 px-8">
+              Start nå
+            </Link>
+            <p className="text-sm text-gray-500">
+              Få svar innen 24 timer
+            </p>
+          </div>
         </div>
       </div>
     </section>

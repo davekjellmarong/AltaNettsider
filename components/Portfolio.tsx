@@ -12,6 +12,8 @@ type PortfolioItem = {
   clientType: string;
   purpose: string;
   stack: string;
+  techTag?: string;
+  successMetric?: string;
 };
 
 const portfolioItems: PortfolioItem[] = [
@@ -22,7 +24,9 @@ const portfolioItems: PortfolioItem[] = [
     description: "Et nettsted for å finne lokale bedrifter som kan hjelpe utføre drenere.",
     clientType: "Tjenestebedrift",
     purpose: "Markedsplass for dreneringstjenester",
-    stack: "Next.js, Tailwind CSS"
+    stack: "Next.js, Tailwind CSS",
+    techTag: "Next.js + Tailwind",
+    successMetric: "+40% flere henvendelser etter lansering"
   },
   {
     title: "Minihjørne",
@@ -31,7 +35,9 @@ const portfolioItems: PortfolioItem[] = [
     description: "En plattform for kjøp og salg av brukte barneklær.",
     clientType: "E-handel",
     purpose: "Markedsplass for brukte barneklær",
-    stack: "React, Node.js, Stripe"
+    stack: "React, Node.js, Stripe",
+    techTag: "React + Stripe",
+    successMetric: "300+ aktive brukere første måned"
   },
   {
     title: "Alta Tannlege",
@@ -40,7 +46,9 @@ const portfolioItems: PortfolioItem[] = [
     description: "Moderne nettside for tannlegepraksis med booking-system.",
     clientType: "Helsepraksis",
     purpose: "Presentasjon og booking",
-    stack: "Next.js, Sanity CMS"
+    stack: "Next.js, Sanity CMS",
+    techTag: "Next.js + CMS",
+    successMetric: "60% flere bookinger online"
   },
   {
     title: "Nordlys Rørlegger",
@@ -49,7 +57,9 @@ const portfolioItems: PortfolioItem[] = [
     description: "Nettside for lokal rørleggerbedrift med tjenesteoversikt.",
     clientType: "Håndverksbedrift",
     purpose: "Tjenestepresentasjon og kontakt",
-    stack: "WordPress, Custom Theme"
+    stack: "WordPress, Custom Theme",
+    techTag: "WordPress + SEO",
+    successMetric: "Top 3 på Google for 'rørlegger Alta'"
   }
 ];
 
@@ -57,7 +67,7 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
 
   return (
-    <section id="portfolio" className="section bg-white">
+    <section id="portfolio" className="section bg-gradient-to-b from-white to-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-alta-dark mb-4">Tidligere arbeid</h2>
@@ -70,11 +80,18 @@ const Portfolio = () => {
           {portfolioItems.map((item, index) => (
             <div
               key={index}
-              className="group cursor-pointer"
+              className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-2"
               onClick={() => setSelectedProject(item)}
             >
               {/* Laptop Frame */}
-              <div className="relative bg-gray-800 rounded-t-lg p-2 shadow-2xl">
+              <div className="relative bg-gray-800 rounded-t-lg p-2 shadow-2xl group-hover:shadow-3xl transition-shadow duration-300">
+                {/* Tech tag */}
+                {item.techTag && (
+                  <div className="absolute -top-3 left-4 bg-alta-blue text-white text-xs px-3 py-1 rounded-full font-medium z-10">
+                    {item.techTag}
+                  </div>
+                )}
+                
                 {/* Laptop screen bezel */}
                 <div className="bg-black rounded-lg p-4">
                   {/* Browser bar */}
@@ -99,6 +116,13 @@ const Portfolio = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     
+                    {/* Success metric */}
+                    {item.successMetric && (
+                      <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        📈 {item.successMetric}
+                      </div>
+                    )}
+                    
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-alta-blue bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="text-center text-white">
@@ -120,9 +144,17 @@ const Portfolio = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Link href="/kontakt" className="btn-secondary">
-            Har du et prosjekt i tankene? Kontakt meg!
-          </Link>
+          <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+            <h3 className="text-2xl font-semibold text-alta-dark mb-4">
+              Har du et prosjekt i tankene?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+              La meg lage en tilsvarende løsning for din bedrift. Gratis forslag og ingen forpliktelser.
+            </p>
+            <Link href="/kontakt" className="btn-primary text-lg px-8 py-4">
+              Få gratis forslag nå
+            </Link>
+          </div>
         </div>
       </div>
 
