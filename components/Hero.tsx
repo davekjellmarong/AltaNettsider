@@ -7,18 +7,17 @@ const Hero = () => {
       <div className="container-custom grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6 animate-fade-in">
           <h1 className="heading-xl text-alta-dark">
-            Lokale <span className="text-alta-blue">nettsider</span> for din bedrift i Alta
+            Profesjonelle <span className="text-alta-blue">nettsider</span> for små bedrifter i Alta
           </h1>
           <p className="text-lg text-gray-600 max-w-md">
-            Vi utvikler moderne, brukervennlige og responsive nettsider som hjelper din bedrift å vokse og nå ut til
-            flere kunder i Alta og omegn.
+            Jeg hjelper lokale bedrifter med å bli synlige på nett – raskt, enkelt og uten stress.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="#contact" className="btn-primary">
-              Få et tilbud
+            <Link href="/kontakt" className="btn-primary">
+              Få gratis forslag
             </Link>
-            <Link href="#services" className="btn-secondary">
-              Se våre tjenester
+            <Link href="/eksempler" className="btn-secondary">
+              Se eksempler
             </Link>
           </div>
         </div>

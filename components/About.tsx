@@ -18,29 +18,36 @@ const About = () => {
         </div>
 
         <div className="space-y-6">
-          <h2 className="heading-lg text-alta-dark">Om AltaNettsider</h2>
-          <p className="text-gray-600">
-            AltaNettsider er et lokalt webdesign-byrå basert i Alta, Norge. Vi fokuserer på å hjelpe lokale bedrifter
-            med å etablere og forbedre deres digitale tilstedeværelse gjennom moderne, brukervennlige nettsider.
+          <h2 className="heading-lg text-alta-dark">Om meg</h2>
+          <p className="text-gray-600 text-lg">
+            Jeg heter Dave og bor i Alta. Jeg lager moderne nettsider for lokale bedrifter — med fokus på enkelhet, fart og at du faktisk får kunder via siden din.
           </p>
           <p className="text-gray-600">
-            Med vår dype forståelse av det lokale markedet i Alta og omegn, kan vi skape skreddersydde løsninger som gir
-            reell verdi for din bedrift og hjelper deg å nå ut til flere kunder.
+            Som en som har bodd i Alta i mange år, forstår jeg hvordan lokale bedrifter tenker og hva som fungerer her. Jeg tror på enkle løsninger som bare fungerer, uten masse teknisk pirk.
           </p>
 
           <div className="grid grid-cols-2 gap-6 mt-8">
             <div>
-              <h4 className="text-xl font-semibold text-alta-blue mb-2">Vår Misjon</h4>
+              <h4 className="text-xl font-semibold text-alta-blue mb-2">Mitt mål</h4>
               <p className="text-gray-600">
-                Å hjelpe lokale bedrifter i Alta med å lykkes i den digitale verden gjennom profesjonelle nettsider.
+                At din bedrift skal få flere kunder gjennom en nettside som faktisk fungerer for deg.
               </p>
             </div>
             <div>
-              <h4 className="text-xl font-semibold text-alta-blue mb-2">Våre Verdier</h4>
+              <h4 className="text-xl font-semibold text-alta-blue mb-2">Min tilnærming</h4>
               <p className="text-gray-600">
-                Kundefokus, lokalt engasjement, kvalitet og innovasjon er kjerneverdiene som driver alt vi gjør.
+                Ingen oppblåst teknisk språk. Bare ærlig rådgivning og løsninger som passer din bedrift.
               </p>
             </div>
+          </div>
+
+          {/* Local anchor element */}
+          <div className="flex items-center pt-6">
+            <svg className="w-6 h-6 text-alta-blue mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span className="text-gray-600 font-medium">Basert i Alta, Finnmark</span>
           </div>
         </div>
       </div>

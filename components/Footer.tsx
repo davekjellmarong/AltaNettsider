@@ -2,78 +2,59 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-alta-dark text-white py-12">
+    <footer className="bg-alta-dark text-white py-16">
       <div className="container-custom">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="text-center space-y-8">
+          {/* Logo/Brand */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">AltaNettsider</h3>
-            <p className="text-gray-300">
-              Vi skaper moderne og brukervennlige nettsider for lokale bedrifter
-              i Alta og omegn.
+            <h3 className="text-2xl font-bold mb-2">
+              Alta<span className="text-alta-blue-light">Nettsider</span>
+            </h3>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap justify-center gap-8">
+            <Link
+              href="/"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Hjem
+            </Link>
+            <Link
+              href="/om"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Om
+            </Link>
+            <Link
+              href="/tjenester"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Tjenester
+            </Link>
+            <Link
+              href="/eksempler"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Eksempler
+            </Link>
+            <Link
+              href="/kontakt"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Kontakt
+            </Link>
+          </nav>
+
+          {/* Separator */}
+          <div className="border-t border-gray-700 pt-8 space-y-4">
+            <p className="text-gray-400">
+              &copy; {new Date().getFullYear()} AltaNettsider
+            </p>
+            <p className="text-alta-blue-light text-sm flex items-center justify-center">
+              Laget i Alta, med ❤️ for lokale bedrifter
             </p>
           </div>
-
-          {/* <div>
-            <h3 className="text-xl font-semibold mb-4">Kontakt</h3>
-            <ul className="space-y-2 text-gray-300">
-              <li>E-post: kontakt@altanettsider.no</li>
-              <li>Telefon: +47 123 45 678</li>
-              <li>Adresse: Altaveien 123, 9510 Alta</li>
-            </ul>
-          </div> */}
-
-          <div>
-            <h3 className="text-xl font-semibold mb-4">Lenker</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Hjem
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#about"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Om oss
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#services"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Tjenester
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#portfolio"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Prosjekter
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#contact"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Kontakt
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} AltaNettsider. Alle rettigheter
-            reservert.
-          </p>
         </div>
       </div>
     </footer>

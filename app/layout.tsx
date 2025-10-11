@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import ReactQueryProvider from "@/src/providers/ReactQueryProvider";
 
 export const metadata: Metadata = {
-  title: "AltaNettsider - Lokale nettsider for din bedrift i Alta",
+  title: "AltaNettsider - Profesjonelle nettsider for små bedrifter i Alta",
   description:
-    "Vi utvikler moderne, brukervennlige og responsive nettsider som hjelper din bedrift å vokse og nå ut til flere kunder i Alta og omegn.",
+    "Jeg hjelper lokale bedrifter med å bli synlige på nett – raskt, enkelt og uten stress. Gratis forslag uten forpliktelser. Basert i Alta, Finnmark.",
   generator: "v0.dev",
 };
 

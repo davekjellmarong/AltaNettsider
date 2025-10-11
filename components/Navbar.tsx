@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const Navbar = () => {
@@ -27,42 +28,42 @@ const Navbar = () => {
       )}
     >
       <div className="container-custom flex justify-between items-center">
-        <a href="#" className="text-alta-blue text-2xl font-bold">
+        <Link href="/" className="text-alta-blue text-2xl font-bold">
           Alta<span className="text-alta-blue-light">Nettsider</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="text-alta-dark hover:text-alta-blue transition-colors"
           >
             Hjem
-          </a>
-          <a
-            href="#about"
+          </Link>
+          <Link
+            href="/om"
             className="text-alta-dark hover:text-alta-blue transition-colors"
           >
-            Om Oss
-          </a>
-          <a
-            href="#services"
+            Om
+          </Link>
+          <Link
+            href="/tjenester"
             className="text-alta-dark hover:text-alta-blue transition-colors"
           >
             Tjenester
-          </a>
-          <a
-            href="#portfolio"
+          </Link>
+          <Link
+            href="/eksempler"
             className="text-alta-dark hover:text-alta-blue transition-colors"
           >
-            Portefølje
-          </a>
-          <a
-            href="#contact"
+            Eksempler
+          </Link>
+          <Link
+            href="/kontakt"
             className="text-alta-dark hover:text-alta-blue transition-colors"
           >
             Kontakt
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -105,44 +106,45 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
+            {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="container-custom py-4 flex flex-col space-y-4">
-            <a
-              href="#"
+            <Link
+              href="/"
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Hjem
-            </a>
-            <a
-              href="#about"
+            </Link>
+            <Link
+              href="/om"
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Om Oss
-            </a>
-            <a
-              href="#services"
+              Om
+            </Link>
+            <Link
+              href="/tjenester"
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Tjenester
-            </a>
-            <a
-              href="#portfolio"
+            </Link>
+            <Link
+              href="/eksempler"
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Portefølje
-            </a>
-            <a
-              href="#contact"
+              Eksempler
+            </Link>
+            <Link
+              href="/kontakt"
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Kontakt
-            </a>
+            </Link>
           </div>
         </div>
       )}
