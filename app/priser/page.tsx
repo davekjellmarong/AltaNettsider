@@ -1,0 +1,350 @@
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Check, Star, Zap, Crown, ShoppingCart, Calendar, Users } from "lucide-react";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Priser for Nettsider | Alta Nettsider - Transparente Priser for Lokale Bedrifter",
+  description: "Se våre konkurransedyktige priser for nettsider til lokale bedrifter i Alta og Finnmark. Startpakke fra 15.000 kr. Ingen skjulte kostnader, transparent prising.",
+  keywords: "nettsider pris Alta, hjemmeside kostnad Finnmark, billige nettsider Norge, priser webutvikling Alta, nettsider for små bedrifter pris",
+  openGraph: {
+    title: "Priser for Nettsider | Alta Nettsider",
+    description: "Konkurransedyktige priser for nettsider til lokale bedrifter i Alta og Finnmark. Fra 15.000 kr.",
+    url: "https://altanettsider.no/priser",
+    type: "website",
+  },
+};
+
+const pricingPlans = [
+  {
+    name: "Startpakke",
+    price: "4.990",
+    description: "Perfekt for små bedrifter som trenger en profesjonell tilstedeværelse på nett",
+    icon: Star,
+    features: [
+      "Moderne, mobilvennlig design",
+      "Inntil 3 sider (Hjem, Om oss, Kontakt)",
+      "Kontaktskjema med e-post notifikasjoner",
+      "Google Maps integrasjon",
+      "Grunnleggende SEO optimering",
+      "SSL-sertifikat inkludert",
+      "1 år hosting inkludert",
+      "Leveringstid: 1-2 uker"
+    ],
+    popular: false,
+    buttonText: "Velg Startpakke",
+    deliveryTime: ""
+  },
+  {
+    name: "Bedriftspakke",
+    price: "8.990",
+    description: "For bedrifter som ønsker mer synlighet og funksjonalitet",
+    icon: Zap,
+    features: [
+      "Alt i Startpakke +",
+      "Inntil 8 sider med tilpasset innhold",
+      "Google My Business oppsett og optimering",
+      "Google Analytics installasjon og oppsett",
+      "Avansert SEO med søkeord research",
+      "Sosiale medier integrasjon",
+      "Billedegalleri/portfolio seksjon",
+      "Nyhetsbrev/blogg funksjon",
+      "Leveringstid: 2-3 uker"
+    ],
+    popular: true,
+    buttonText: "Mest Populær",
+    deliveryTime: ""
+  }
+];
+
+const additionalServices = [
+  { name: "Logo og visuell identitet", price: "Tilbud på forespørsel" },
+  { name: "Profesjonell fotografering", price: "Tilbud på forespørsel" },
+  { name: "Tekst og innholdsproduksjon", price: "Tilbud på forespørsel" },
+  { name: "Løpende vedlikehold", price: "Fra 590 kr/mnd" },
+  { name: "Markedsføring og SEO", price: "Tilbud på forespørsel" },
+  { name: "Spesialtilpasninger", price: "Tilbud på forespørsel" }
+];
+
+export default function PricingPage() {
+  return (
+    <main>
+      <Navbar />
+      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+      {/* Header Section */}
+      <section className="pt-32 pb-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <Badge variant="outline" className="mb-4 border-alta-blue text-alta-blue">
+            Transparente Priser
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold text-alta-dark mb-6">
+            Priser for <span className="text-alta-blue">profesjonelle nettsider</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Vi tilpasser løsningene til dine behov og budsjett. Her får du en oversikt over våre 
+            hovedpakker for nettsider til lokale bedrifter i Alta og Finnmark.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-green-500" />
+              <span>Skreddersydde løsninger</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-green-500" />
+              <span>Gratis konsultasjon</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-4 w-4 text-green-500" />
+              <span>Lokalt engasjement</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="pb-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {pricingPlans.map((plan, index) => {
+              const IconComponent = plan.icon;
+              return (
+                <Card 
+                  key={index} 
+                  className={`relative ${plan.popular ? 'border-alta-blue ring-2 ring-alta-blue/20 scale-105' : 'border-gray-200'} hover:shadow-lg transition-all duration-300`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                      <Badge className="bg-alta-blue text-white px-4 py-1">
+                        Mest populær
+                      </Badge>
+                    </div>
+                  )}
+                  
+                  <CardHeader className="text-center pb-6">
+                    <div className={`w-16 h-16 rounded-full ${plan.popular ? 'bg-alta-blue' : 'bg-gray-100'} flex items-center justify-center mx-auto mb-4`}>
+                      <IconComponent className={`h-8 w-8 ${plan.popular ? 'text-white' : 'text-alta-blue'}`} />
+                    </div>
+                    <CardTitle className="text-2xl font-bold text-alta-dark">{plan.name}</CardTitle>
+                    <CardDescription className="text-gray-600 mt-2">
+                      {plan.description}
+                    </CardDescription>
+                    <div className="mt-4">
+                      <span className="text-3xl font-bold text-alta-dark">
+                        {plan.price}
+                      </span>
+                      <span className="text-gray-500 ml-2">kr</span>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="pt-0">
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start gap-3">
+                          <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-600 text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    <Button 
+                      asChild
+                      className={`w-full ${plan.popular ? 'bg-alta-blue hover:bg-alta-blue/90' : 'bg-gray-900 hover:bg-gray-800'}`}
+                    >
+                      <Link href="/#contact">
+                        {plan.buttonText}
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Solutions */}
+      <section className="pb-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-alta-dark mb-4">
+              Avanserte Løsninger
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Trenger din bedrift noe mer avansert? Vi kan skreddersy løsninger for alle behov.
+              Kontakt oss for et tilpasset tilbud.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <Card className="border-gray-200 text-center p-6">
+              <ShoppingCart className="h-12 w-12 text-alta-blue mx-auto mb-4" />
+              <h3 className="font-bold text-alta-dark mb-2">E-handel</h3>
+              <p className="text-gray-600 text-sm">
+                Nettbutikk med betalingsløsninger, produktkatalog og ordrehåndtering
+              </p>
+            </Card>
+            
+            <Card className="border-gray-200 text-center p-6">
+              <Calendar className="h-12 w-12 text-alta-blue mx-auto mb-4" />
+              <h3 className="font-bold text-alta-dark mb-2">Booking & Reservasjon</h3>
+              <p className="text-gray-600 text-sm">
+                Online booking system for tjenester, timer og arrangementer
+              </p>
+            </Card>
+            
+            <Card className="border-gray-200 text-center p-6">
+              <Users className="h-12 w-12 text-alta-blue mx-auto mb-4" />
+              <h3 className="font-bold text-alta-dark mb-2">Kundeportaler</h3>
+              <p className="text-gray-600 text-sm">
+                Innloggingsområder, medlemssider og kundedatabaser
+              </p>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Card className="border-alta-blue bg-alta-blue/5 p-8 max-w-2xl mx-auto">
+              <Crown className="h-16 w-16 text-alta-blue mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-alta-dark mb-4">Skreddersydde Løsninger</h3>
+              <p className="text-gray-600 mb-6">
+                Har du spesielle behov eller ønsker en helt unik løsning? Vi utvikler skreddersydde 
+                nettsider og webapplikasjoner tilpasset akkurat din virksomhet.
+              </p>
+              <Button asChild className="bg-alta-blue hover:bg-alta-blue/90">
+                <Link href="/#contact">
+                  Kontakt oss for tilbud
+                </Link>
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Services */}
+      <section className="pb-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-alta-dark mb-4">
+              Tilleggstjenester
+            </h2>
+            <p className="text-gray-600">
+              Komplett digital tilstedeværelse med våre tilleggstjenester
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {additionalServices.map((service, index) => (
+              <Card key={index} className="border-gray-200">
+                <CardContent className="p-6">
+                  <div className="flex justify-between items-center">
+                    <h3 className="font-semibold text-alta-dark">{service.name}</h3>
+                    <span className="font-bold text-alta-blue">{service.price}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="pb-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-alta-dark mb-4">
+              Ofte stilte spørsmål om priser
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            <Card className="border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-lg">Hvordan fungerer prissettingen?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Vi lager alltid et skreddersydd tilbud basert på dine spesifikke behov og ønsker. 
+                  Prisene over er veiledende startpriser for hver kategori.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-lg">Hva er inkludert?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Alle pakker inkluderer design, utvikling, testing og lansering. Hosting og domene 
+                  tilbys som separate tjenester eller kan inkluderes i avtalen.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-lg">Kan løsningen utvides senere?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Absolutt! Vi bygger nettsider som kan vokse med bedriften din. Du kan enkelt 
+                  legge til nye funksjoner og sider etter behov.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-gray-200">
+              <CardHeader>
+                <CardTitle className="text-lg">Tilbyr dere vedlikehold?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Vi tilbyr fleksible vedlikeholdsavtaler tilpasset ditt behov og budsjett. 
+                  Ta kontakt for å diskutere mulighetene.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="pb-16 px-4 bg-alta-blue text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Klar for å komme i gang?
+          </h2>
+          <p className="text-xl mb-8 text-blue-100">
+            La oss bygge den perfekte nettsiden for din bedrift i Alta
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild
+              size="lg"
+              className="bg-white text-alta-blue hover:bg-gray-100"
+            >
+              <Link href="/#contact">
+                Start ditt prosjekt
+              </Link>
+            </Button>
+            <Button 
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-alta-blue"
+            >
+              <Link href="/nettsider-for-lokale-bedrifter">
+                Les mer om tjenestene
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      </div>
+      <Footer />
+    </main>
+  );
+}

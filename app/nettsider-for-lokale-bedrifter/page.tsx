@@ -89,9 +89,6 @@ export default function NettisiderForLokaleBedrifterPage() {
             
             {/* Local trust signals */}
             <div className="mt-12 pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-600 mb-4">
-                ✅ Over 10 lokale bedrifter i Alta har fått nettside av meg
-              </p>
               <p className="text-sm text-gray-500">
                 Basert i Alta, Finnmark • Personlig service til lokale bedrifter
               </p>

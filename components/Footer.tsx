@@ -62,6 +62,13 @@ const Footer = () => {
               </Link>
               <div className="text-gray-600">|</div>
               <Link
+                href="/priser"
+                className="text-gray-300 hover:text-alta-blue-light transition-colors duration-300 hover:underline px-2 py-1"
+              >
+                Priser
+              </Link>
+              <div className="text-gray-600">|</div>
+              <Link
                 href="/kontakt"
                 className="text-gray-300 hover:text-alta-blue-light transition-colors duration-300 hover:underline px-2 py-1"
               >

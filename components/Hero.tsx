@@ -24,15 +24,7 @@ const Hero = () => {
             </Link>
           </div>
           
-          {/* Trust line */}
-          <div className="pt-4 border-t border-gray-200">
-            <p className="text-sm text-gray-500 flex items-center">
-              <svg className="w-4 h-4 text-alta-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              Over 10 lokale bedrifter i Alta har fått nettside av meg.
-            </p>
-          </div>
+
         </div>
         <div className="relative animate-fade-in-right">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-alta-blue-light rounded-full opacity-20"></div>

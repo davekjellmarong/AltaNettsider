@@ -68,6 +68,13 @@ const Navbar = () => {
             <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
+            href="/priser"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
+          >
+            Priser
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </Link>
+          <Link
             href="/kontakt"
             className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
@@ -147,6 +154,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Eksempler
+            </Link>
+            <Link
+              href="/priser"
+              className="text-alta-dark hover:text-alta-blue transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Priser
             </Link>
             <Link
               href="/kontakt"
