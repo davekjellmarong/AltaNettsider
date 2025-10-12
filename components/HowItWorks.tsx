@@ -37,12 +37,15 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white">
+    <section id="how-it-works" className="section bg-gradient-to-b from-gray-50 to-white relative">
+      {/* Thin divider line */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-alta-blue/30 to-transparent"></div>
+      
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="heading-lg text-alta-dark mb-4">Hvordan det fungerer</h2>
+          <h2 className="heading-lg text-alta-dark mb-4">Hvordan jeg lager nettsider for lokale bedrifter</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Enkel prosess fra idé til ferdig nettside – ingen kompliserte tekniske detaljer.
+            Enkel prosess fra idé til ferdig nettside for din lokale bedrift – ingen kompliserte tekniske detaljer.
           </p>
         </div>
 
@@ -56,14 +59,18 @@ const HowItWorks = () => {
               <div className="absolute inset-0 bg-white rounded-xl shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2 -z-10"></div>
               
               <div className="relative p-6">
-                {/* Step number circle */}
-                <div className="mx-auto w-16 h-16 bg-alta-blue text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 relative z-10 group-hover:bg-alta-blue-light group-hover:scale-110 transition-all duration-300 shadow-lg">
-                  {step.number}
+                {/* Step number circle with soft brand background */}
+                <div className="mx-auto w-20 h-20 bg-gradient-to-br from-alta-blue to-alta-blue-light text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 relative z-10 group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-xl animate-fade-in">
+                  <div className="absolute inset-0 bg-alta-blue/10 rounded-full scale-150 group-hover:scale-175 transition-transform duration-500"></div>
+                  <span className="relative z-10">{step.number}</span>
                 </div>
                 
-                {/* Icon */}
-                <div className="flex justify-center text-alta-blue mb-4 group-hover:text-alta-blue-light transition-colors duration-300">
-                  {step.icon}
+                {/* Icon with soft background */}
+                <div className="flex justify-center text-alta-blue mb-4 group-hover:text-alta-blue-light transition-colors duration-300 relative">
+                  <div className="absolute inset-0 bg-alta-blue/5 rounded-full scale-150 group-hover:bg-alta-blue/10 transition-all duration-300"></div>
+                  <div className="relative z-10">
+                    {step.icon}
+                  </div>
                 </div>
                 
                 {/* Content */}

@@ -25,7 +25,7 @@ const portfolioItems: PortfolioItem[] = [
     clientType: "Tjenestebedrift",
     purpose: "Markedsplass for dreneringstjenester",
     stack: "Next.js, Tailwind CSS",
-    techTag: "Next.js + Tailwind",
+    techTag: "Next.js",
     successMetric: "+40% flere henvendelser etter lansering"
   },
   {
@@ -36,30 +36,8 @@ const portfolioItems: PortfolioItem[] = [
     clientType: "E-handel",
     purpose: "Markedsplass for brukte barneklær",
     stack: "React, Node.js, Stripe",
-    techTag: "React + Stripe",
+    techTag: "React",
     successMetric: "300+ aktive brukere første måned"
-  },
-  {
-    title: "Alta Tannlege",
-    category: "Helse",
-    image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=800",
-    description: "Moderne nettside for tannlegepraksis med booking-system.",
-    clientType: "Helsepraksis",
-    purpose: "Presentasjon og booking",
-    stack: "Next.js, Sanity CMS",
-    techTag: "Next.js + CMS",
-    successMetric: "60% flere bookinger online"
-  },
-  {
-    title: "Nordlys Rørlegger",
-    category: "Håndverk",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800",
-    description: "Nettside for lokal rørleggerbedrift med tjenesteoversikt.",
-    clientType: "Håndverksbedrift",
-    purpose: "Tjenestepresentasjon og kontakt",
-    stack: "WordPress, Custom Theme",
-    techTag: "WordPress + SEO",
-    successMetric: "Top 3 på Google for 'rørlegger Alta'"
   }
 ];
 
@@ -71,8 +49,11 @@ const Portfolio = () => {
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-alta-dark mb-4">Tidligere arbeid</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Se eksempler på nettsider jeg har laget for lokale bedrifter i Alta og omegn.
+          <p className="text-gray-600 max-w-2xl mx-auto mb-4">
+            Se eksempler på <Link href="/nettsider-for-lokale-bedrifter" className="text-alta-blue hover:underline font-medium">nettsider jeg har laget for lokale bedrifter</Link> i Alta og omegn.
+          </p>
+          <p className="text-sm text-alta-blue font-medium bg-alta-blue/10 inline-block px-4 py-2 rounded-full">
+            ✓ Alle prosjekter levert i tide og budsjett
           </p>
         </div>
 
@@ -80,55 +61,55 @@ const Portfolio = () => {
           {portfolioItems.map((item, index) => (
             <div
               key={index}
-              className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-2"
+              className="group cursor-pointer transform transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02]"
               onClick={() => setSelectedProject(item)}
             >
               {/* Laptop Frame */}
-              <div className="relative bg-gray-800 rounded-t-lg p-2 shadow-2xl group-hover:shadow-3xl transition-shadow duration-300">
+              <div className="relative bg-gray-800 rounded-t-xl p-3 shadow-xl border border-gray-700 group-hover:shadow-2xl group-hover:shadow-alta-blue/25 transition-all duration-500">
                 {/* Tech tag */}
                 {item.techTag && (
-                  <div className="absolute -top-3 left-4 bg-alta-blue text-white text-xs px-3 py-1 rounded-full font-medium z-10">
+                  <div className="absolute -top-3 left-4 bg-gradient-to-r from-alta-blue to-blue-600 text-white text-xs px-4 py-1 rounded-full font-semibold z-10 shadow-lg">
                     {item.techTag}
                   </div>
                 )}
                 
                 {/* Laptop screen bezel */}
-                <div className="bg-black rounded-lg p-4">
+                <div className="bg-black rounded-lg p-4 border border-gray-600">
                   {/* Browser bar */}
                   <div className="flex items-center space-x-2 mb-3">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-2.5 h-2.5 bg-red-500 rounded-full transition-all duration-300 group-hover:bg-red-400"></div>
+                      <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full transition-all duration-300 group-hover:bg-yellow-400"></div>
+                      <div className="w-2.5 h-2.5 bg-green-500 rounded-full transition-all duration-300 group-hover:bg-green-400"></div>
                     </div>
-                    <div className="flex-1 bg-gray-700 rounded text-xs text-gray-400 px-2 py-1">
+                    <div className="flex-1 bg-gray-700 rounded text-xs text-gray-400 px-3 py-1.5 font-mono">
                       {item.title.toLowerCase()}.no
                     </div>
                   </div>
                   
                   {/* Website preview */}
-                  <div className="relative h-48 bg-white rounded overflow-hidden">
+                  <div className="relative h-48 bg-white rounded-md overflow-hidden border border-gray-200 shadow-inner">
                     <Image
                       src={item.image}
                       alt={item.title}
                       width={800}
                       height={400}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                     />
                     
                     {/* Success metric */}
                     {item.successMetric && (
-                      <div className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
                         📈 {item.successMetric}
                       </div>
                     )}
                     
                     {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-alta-blue bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="text-center text-white">
-                        <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                        <p className="text-sm mb-3">{item.category}</p>
-                        <span className="inline-block bg-white text-alta-blue px-4 py-2 rounded-md font-medium">
+                    <div className="absolute inset-0 bg-gradient-to-br from-alta-blue via-alta-blue to-blue-700 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+                      <div className="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                        <p className="text-sm mb-4 opacity-90">{item.category}</p>
+                        <span className="inline-block bg-white text-alta-blue px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                           Vis prosjekt
                         </span>
                       </div>
@@ -137,7 +118,7 @@ const Portfolio = () => {
                 </div>
                 
                 {/* Laptop base */}
-                <div className="h-2 bg-gray-600 rounded-b-lg"></div>
+                <div className="h-3 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-xl border-t border-gray-500"></div>
               </div>
             </div>
           ))}

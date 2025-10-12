@@ -23,12 +23,17 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        scrolled 
+          ? "bg-white/95 backdrop-blur-md shadow-lg shadow-alta-blue/10 py-2" 
+          : "bg-transparent py-4"
       )}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link href="/" className="text-alta-blue text-2xl font-bold">
+        <Link 
+          href="/" 
+          className="text-alta-blue text-2xl font-bold transition-all duration-300 hover:scale-105 transform"
+        >
           Alta<span className="text-alta-blue-light">Nettsider</span>
         </Link>
 
@@ -36,33 +41,38 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-8">
           <Link
             href="/"
-            className="text-alta-dark hover:text-alta-blue transition-colors"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
             Hjem
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
             href="/om"
-            className="text-alta-dark hover:text-alta-blue transition-colors"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
-            Om
+            Om oss
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
             href="/tjenester"
-            className="text-alta-dark hover:text-alta-blue transition-colors"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
             Tjenester
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
             href="/eksempler"
-            className="text-alta-dark hover:text-alta-blue transition-colors"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
             Eksempler
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
             href="/kontakt"
-            className="text-alta-dark hover:text-alta-blue transition-colors"
+            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
             Kontakt
+            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
         </div>
 
@@ -122,7 +132,7 @@ const Navbar = () => {
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Om
+              Om oss
             </Link>
             <Link
               href="/tjenester"

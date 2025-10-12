@@ -11,23 +11,25 @@ import { useRouter } from "next/navigation";
 const Contact = () => {
   const router = useRouter();
 
-  const { mutate, isPending } = useMutation({
+  const { mutate, isPending, isSuccess } = useMutation({
     mutationFn: addContactToHubspot,
     onSuccess: () => {
-      toast.success("Allt godt!"); 
+      toast.success("Takk! Jeg svarer innen 24 timer 🚀", {
+        description: "Hold øye med innboksen din - forslaget kommer snart!",
+      }); 
       // router.push("/tilbud/takk");
     },
     onError: (error) => {
-      toast.error(error.message);
+      toast.error("Ops, noe gikk galt. Prøv igjen eller ring meg direkte!");
       console.log(error);
     },
   });
   return (
-    <section id="contact" className="section" style={{backgroundColor: '#1E4873'}}>
+    <section id="contact" className="section bg-gradient-to-br from-blue-800 via-alta-blue to-blue-900">
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-white mb-4">Kontakt</h2>
-          <p className="text-blue-200 max-w-2xl mx-auto text-lg mb-4">
+          <p className="text-blue-100 max-w-2xl mx-auto text-lg mb-4">
             Klar for å se hvordan nettsiden deres kan se ut?
           </p>
           <p className="text-white font-semibold text-xl">
@@ -37,7 +39,7 @@ const Contact = () => {
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
           {/* Contact Form - elevated */}
-          <div className="bg-white rounded-lg shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300 relative z-10">
+          <div className="bg-white rounded-xl shadow-lg shadow-black/20 p-8 transform hover:scale-[1.02] transition-all duration-300 relative z-10">
             <h3 className="text-2xl font-semibold text-alta-dark mb-6">Send meg en melding</h3>
             <form action={mutate} className="space-y-6">
               <div className="space-y-4">
@@ -86,9 +88,17 @@ const Contact = () => {
               <Button
                 type="submit"
                 disabled={isPending}
-                className="w-full bg-alta-blue hover:bg-alta-blue/90 text-white py-3 text-lg font-medium"
+                className="w-full bg-alta-blue hover:bg-alta-blue/90 text-white py-3 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]"
               >
-                {isPending ? "Sender..." : "Send gratis forespørsel"}
+                {isPending ? (
+                  <div className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sender...
+                  </div>
+                ) : "Send gratis forespørsel"}
               </Button>
             </form>
             
@@ -111,7 +121,7 @@ const Contact = () => {
 
           {/* Contact Information - flatter elevation */}
           <div className="space-y-8">
-            <div className="bg-white/10 backdrop-blur rounded-lg p-8 shadow-lg">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 shadow-lg shadow-black/10">
               <h3 className="text-2xl font-semibold text-white mb-6">Kontakt meg direkte</h3>
               
               <div className="space-y-6">
@@ -152,15 +162,22 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">📍 Lokasjon</p>
-                    <p className="text-blue-200">Alta, Finnmark</p>
+                    <p className="text-blue-200">Breidablikk 14</p>
+                    <p className="text-blue-200">9511 Alta, Finnmark</p>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-blue-200 text-sm">
-                  Jeg svarer som regel innen 24 timer, og du får alltid en ærlig vurdering av om jeg kan hjelpe deg.
-                </p>
+                <div className="mt-8 pt-8 border-t border-white/20">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <div className="flex items-center mb-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                    <p className="text-white font-medium text-sm">Vanligvis online</p>
+                  </div>
+                  <p className="text-blue-100 text-sm">
+                    Jeg svarer som regel innen 24 timer, og du får alltid en ærlig vurdering av om jeg kan hjelpe deg.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

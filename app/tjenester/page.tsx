@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Tjenester og Priser - Nettsider for små bedrifter i Alta | AltaNettsider",
+  title: "Nettsider for lokale bedrifter - Priser og Tjenester | AltaNettsider",
   description:
-    "Transparente priser på nettsider i Alta. Fra 4,900 kr for enkel side til 14,900 kr for nettbutikk. Alle løsninger inkluderer hosting og support.",
+    "Nettsider for lokale bedrifter i Alta og Finnmark. Transparente priser fra 4,900 kr for enkel side til 14,900 kr for nettbutikk. Alle løsninger inkluderer hosting og support for små bedrifter.",
 };
 
 export default function ServicesPage() {

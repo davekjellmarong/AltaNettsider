@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Om Dave - Lokale nettsider for din bedrift i Alta | AltaNettsider",
+  title: "Om oss - AltaNettsider | Nettsider for lokale bedrifter i Alta",
   description:
-    "Møt Dave som lager moderne nettsider for lokale bedrifter i Alta. Med fokus på enkelhet, fart og at du faktisk får kunder via siden din.",
+    "AltaNettsider lager moderne nettsider for lokale bedrifter i Alta og Finnmark. Spesialist på nettsider for små bedrifter med fokus på enkelhet, fart og at du faktisk får kunder via siden din.",
 };
 
 export default function AboutPage() {

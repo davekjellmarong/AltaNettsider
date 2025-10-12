@@ -56,6 +56,7 @@ const pricingPlans = [
       "Responsivt design",
       "Kontaktskjema",
       "Grunnleggende SEO",
+      "Google Analytics oppsett",
       "Domenehjelp",
       "1 år hosting inkludert"
     ],
@@ -70,7 +71,8 @@ const pricingPlans = [
       "Bildegalleri",
       "Booking/bestilling",
       "Avansert SEO",
-      "Google My Business",
+      "Google My Business oppsett",
+      "Google Analytics + rapporter",
       "Domenehjelp",
       "1 år hosting inkludert",
       "Prioritert support"
@@ -87,6 +89,8 @@ const pricingPlans = [
       "Betalingsløsninger",
       "Lagerintegrasjon",
       "Avansert SEO",
+      "Google My Business oppsett",
+      "E-handel Analytics",
       "Domenehjelp",
       "1 år hosting inkludert",
       "Opplæring inkludert"
@@ -110,17 +114,18 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <div 
               key={index} 
-              className={`relative bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border-2 ${
+              className={`relative bg-white rounded-xl p-8 transition-all duration-300 border-2 ${
                 plan.recommended 
-                  ? 'border-alta-blue shadow-alta-blue/20 shadow-2xl' 
-                  : 'border-gray-100 hover:border-alta-blue/30'
+                  ? 'border-alta-blue shadow-2xl shadow-alta-blue/25 transform hover:scale-105' 
+                  : 'border-gray-100 hover:border-alta-blue/30 shadow-lg hover:shadow-xl'
               }`}
             >
               {plan.recommended && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-alta-blue text-white px-4 py-2 rounded-full text-sm font-medium">
-                    Mest populær
-                  </span>
+                  <div className="bg-gradient-to-r from-alta-blue to-alta-blue-light text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-alta-blue to-alta-blue-light rounded-full blur opacity-75"></div>
+                    <span className="relative">⭐ Mest populær</span>
+                  </div>
                 </div>
               )}
               

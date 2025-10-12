@@ -7,5 +7,6 @@ module.exports = {
     await config.transform(config, '/tjenester'),
     await config.transform(config, '/eksempler'),
     await config.transform(config, '/kontakt'),
+    await config.transform(config, '/nettsider-for-lokale-bedrifter'),
   ],
 };
