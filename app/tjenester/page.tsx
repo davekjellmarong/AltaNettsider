@@ -30,7 +30,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tjenester for Nettsider | Alta Nettsider - Komplett Webutvikling i Alta",
-  description: "Vi leverer alle tjenester du trenger for en suksessfull nettside: domene, hosting, design, SEO, Google Analytics, og mer. Komplett webutvikling i Alta og Finnmark.",
+  description: "Jeg leverer alle tjenester du trenger for en suksessfull nettside: domene, hosting, design, SEO, Google Analytics, og mer. Komplett webutvikling i Alta og Finnmark.",
   keywords: "webutvikling tjenester Alta, domene registrering, webhosting Norge, SEO tjenester Finnmark, Google Analytics oppsett, nettside design Alta",
   openGraph: {
     title: "Tjenester for Nettsider | Alta Nettsider",
@@ -273,7 +273,7 @@ export default function ServicesPage() {
             Alt du trenger for en <span className="text-alta-blue">suksessfull nettside</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Fra domene og hosting til design og markedsføring - vi leverer alle tjenester 
+            Fra domene og hosting til design og markedsføring - jeg leverer alle tjenester 
             du trenger for å lykkes på nett. Én leverandør, komplett løsning.
           </p>
         </div>
@@ -334,10 +334,10 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-alta-dark mb-4">
-              Alle Våre Tjenester
+              Alle Tjenester
             </h2>
             <p className="text-gray-600">
-              Komplett oversikt over alt vi kan hjelpe deg med
+              Komplett oversikt over alt jeg kan hjelpe deg med
             </p>
           </div>
 
@@ -390,10 +390,10 @@ export default function ServicesPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-alta-dark mb-4">
-              Slik jobber vi
+              Slik jobber jeg
             </h2>
             <p className="text-gray-600">
-              Fra første kontakt til ferdig nettside - vår prosess
+              Fra første kontakt til ferdig nettside - min prosess
             </p>
           </div>
 
@@ -402,17 +402,17 @@ export default function ServicesPage() {
               {
                 step: "1",
                 title: "Konsultasjon",
-                description: "Vi diskuterer dine behov og ønsker"
+                description: "Jeg diskuterer dine behov og ønsker"
               },
               {
                 step: "2", 
                 title: "Planlegging",
-                description: "Vi lager en detaljert plan og tidslinje"
+                description: "Jeg lager en detaljert plan og tidslinje"
               },
               {
                 step: "3",
                 title: "Utvikling",
-                description: "Vi bygger nettsiden med regelmessige oppdateringer"
+                description: "Jeg bygger nettsiden med regelmessige oppdateringer"
               },
               {
                 step: "4",
@@ -433,7 +433,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="pb-16 px-4 bg-alta-blue text-white">
+      <section className="py-16 px-4 bg-alta-blue text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">
             Klar for å komme i gang?
@@ -455,7 +455,7 @@ export default function ServicesPage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-alta-blue"
+              className="border-white bg-transparent text-white hover:bg-white hover:text-alta-blue"
             >
               <Link href="/priser">
                 Se priser

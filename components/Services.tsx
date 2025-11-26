@@ -46,9 +46,9 @@ const Services = () => {
     <section id="services" className="section bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="heading-lg text-alta-dark mb-4">Våre Tjenester</h2>
+          <h2 className="heading-lg text-alta-dark mb-4">Hva jeg kan hjelpe deg med</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Vi tilbyr et bredt spekter av tjenester for å hjelpe din bedrift å lykkes på nett, fra skreddersydd nettside utvikling til lokal SEO optimalisering.
+            Fra skreddersydd nettside utvikling til lokal SEO optimalisering - jeg tar hånd om alt du trenger for å lykkes på nett.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ const Services = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <a href="#contact" className="btn-primary">Kontakt oss for mer informasjon</a>
+          <a href="#contact" className="btn-primary">Kontakt meg for mer informasjon</a>
         </div>
       </div>
     </section>

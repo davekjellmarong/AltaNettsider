@@ -8,7 +8,7 @@ const About = () => {
         {/* Business visual element instead of personal photo */}
         <div className="text-center mb-16">
           <div className="max-w-4xl mx-auto">
-            <h2 className="heading-lg text-alta-dark mb-4">Om oss</h2>
+            <h2 className="heading-lg text-alta-dark mb-4">Om meg</h2>
             <p className="text-alta-blue font-semibold italic text-xl mb-8">
               "Enkle nettsider som gir resultater for lokale bedrifter"
             </p>
@@ -36,8 +36,8 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-alta-dark">10+ Prosjekter</h3>
-                  <p className="text-sm text-gray-600">Lokale bedrifter</p>
+                  <h3 className="font-semibold text-alta-dark">Mobilvennlig</h3>
+                  <p className="text-sm text-gray-600">Fungerer på alle enheter</p>
                 </div>
                 
                 <div className="flex flex-col items-center">
@@ -57,10 +57,10 @@ const About = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center">
             <p className="text-gray-800 text-lg leading-relaxed mb-6">
-              AltaNettsider er spesialisert på å lage moderne nettsider for lokale bedrifter i Alta og Finnmark. Vi forstår utfordringene små bedrifter møter og lager løsninger som faktisk gir deg flere kunder.
+              Jeg heter Dave og lager moderne nettsider for lokale bedrifter i Alta og Finnmark. Som liten aktør forstår jeg utfordringene små bedrifter møter, og lager enkle løsninger som faktisk gir deg flere kunder.
             </p>
             <p className="text-gray-700 leading-relaxed mb-8">
-              Med solid erfaring fra Alta-området forstår vi hvordan lokale bedrifter tenker og hva som fungerer for kunder i nord. Vi tror på enkle løsninger som bare fungerer, uten masse teknisk pirk.
+              Basert i Alta kjenner jeg området og hvordan lokale bedrifter tenker. Jeg tror på enkle løsninger som bare fungerer, uten masse teknisk pirk eller unødvendig kompleksitet.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ const About = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-semibold text-alta-blue">Vårt mål</h4>
+                <h4 className="text-xl font-semibold text-alta-blue">Mitt mål</h4>
               </div>
               <p className="text-gray-700">
                 At din bedrift skal få flere kunder gjennom en <Link href="/nettsider-for-lokale-bedrifter" className="text-alta-blue hover:underline font-medium">nettside som faktisk fungerer for deg</Link>.

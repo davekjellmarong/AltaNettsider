@@ -50,7 +50,7 @@ const Navbar = () => {
             href="/om"
             className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
           >
-            Om oss
+            Om meg
             <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
           </Link>
           <Link
@@ -139,7 +139,7 @@ const Navbar = () => {
               className="text-alta-dark hover:text-alta-blue transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Om oss
+              Om meg
             </Link>
             <Link
               href="/tjenester"

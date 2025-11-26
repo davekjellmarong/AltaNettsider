@@ -16,7 +16,7 @@ const Contact = () => {
     onSuccess: () => {
       toast.success("Takk! Jeg svarer innen 24 timer 🚀", {
         description: "Hold øye med innboksen din - forslaget kommer snart!",
-      }); 
+      });
       // router.push("/tilbud/takk");
     },
     onError: (error) => {
@@ -25,7 +25,10 @@ const Contact = () => {
     },
   });
   return (
-    <section id="contact" className="section bg-gradient-to-br from-blue-800 via-alta-blue to-blue-900">
+    <section
+      id="contact"
+      className="section bg-gradient-to-br from-blue-800 via-alta-blue to-blue-900"
+    >
       <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg text-white mb-4">Kontakt</h2>
@@ -40,11 +43,16 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
           {/* Contact Form - elevated */}
           <div className="bg-white rounded-xl shadow-lg shadow-black/20 p-8 transform hover:scale-[1.02] transition-all duration-300 relative z-10">
-            <h3 className="text-2xl font-semibold text-alta-dark mb-6">Send meg en melding</h3>
+            <h3 className="text-2xl font-semibold text-alta-dark mb-6">
+              Send meg en melding
+            </h3>
             <form action={mutate} className="space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Navn
                   </label>
                   <Input
@@ -56,9 +64,12 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     E-post
                   </label>
                   <Input
@@ -70,9 +81,12 @@ const Contact = () => {
                     required
                   />
                 </div>
-                
+
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium text-gray-700"
+                  >
                     Melding
                   </label>
                   <Textarea
@@ -84,7 +98,7 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
+
               <Button
                 type="submit"
                 disabled={isPending}
@@ -92,16 +106,34 @@ const Contact = () => {
               >
                 {isPending ? (
                   <div className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Sender...
                   </div>
-                ) : "Send gratis forespørsel"}
+                ) : (
+                  "Send gratis forespørsel"
+                )}
               </Button>
             </form>
-            
+
             {/* Personal signature */}
             <div className="mt-8 pt-6 border-t border-gray-200 text-center">
               <p className="text-gray-600 mb-2 italic">
@@ -113,7 +145,9 @@ const Contact = () => {
                 </div>
                 <div className="text-left">
                   <p className="font-medium text-alta-dark">Hilsen,</p>
-                  <p className="text-alta-blue font-semibold">Dave – AltaNettsider</p>
+                  <p className="text-alta-blue font-semibold">
+                    Dave – AltaNettsider
+                  </p>
                 </div>
               </div>
             </div>
@@ -122,42 +156,85 @@ const Contact = () => {
           {/* Contact Information - flatter elevation */}
           <div className="space-y-8">
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 shadow-lg shadow-black/10">
-              <h3 className="text-2xl font-semibold text-white mb-6">Kontakt meg direkte</h3>
-              
+              <h3 className="text-2xl font-semibold text-white mb-6">
+                Kontakt meg direkte
+              </h3>
+
               <div className="space-y-6">
                 <div className="flex items-center group hover:bg-white/5 rounded-lg p-3 transition-colors duration-200">
                   <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-200">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <p className="text-white font-medium">📧 E-post</p>
-                    <a href="mailto:dave@altanettsider.no" className="text-blue-200 hover:text-white transition-colors">
-                      dave@altanettsider.no
+                    <a
+                      href="mailto:kontakt@altanettsider.no"
+                      className="text-blue-200 hover:text-white transition-colors"
+                    >
+                      kontakt@altanettsider.no
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center group hover:bg-white/5 rounded-lg p-3 transition-colors duration-200">
                   <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-200">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <p className="text-white font-medium">📞 Telefon</p>
-                    <a href="tel:+4741234567" className="text-blue-200 hover:text-white transition-colors">
+                    <a
+                      href="tel:+4741234567"
+                      className="text-blue-200 hover:text-white transition-colors"
+                    >
                       +47 412 34 567
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center group hover:bg-white/5 rounded-lg p-3 transition-colors duration-200">
                   <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4 group-hover:bg-white/30 transition-colors duration-200">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <svg
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
                     </svg>
                   </div>
                   <div>
@@ -167,15 +244,18 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              
-                <div className="mt-8 pt-8 border-t border-white/20">
+
+              <div className="mt-8 pt-8 border-t border-white/20">
                 <div className="bg-white/5 rounded-lg p-4">
                   <div className="flex items-center mb-2">
                     <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                    <p className="text-white font-medium text-sm">Vanligvis online</p>
+                    <p className="text-white font-medium text-sm">
+                      Vanligvis online
+                    </p>
                   </div>
                   <p className="text-blue-100 text-sm">
-                    Jeg svarer som regel innen 24 timer, og du får alltid en ærlig vurdering av om jeg kan hjelpe deg.
+                    Jeg svarer som regel innen 24 timer, og du får alltid en
+                    ærlig vurdering av om jeg kan hjelpe deg.
                   </p>
                 </div>
               </div>

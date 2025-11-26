@@ -44,7 +44,7 @@ const Footer = () => {
                 href="/om"
                 className="text-gray-300 hover:text-alta-blue-light transition-colors duration-300 hover:underline px-2 py-1"
               >
-                Om oss
+                Om meg
               </Link>
               <div className="text-gray-600">|</div>
               <Link
