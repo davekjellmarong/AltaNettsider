@@ -1,17 +1,23 @@
 import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { 
-  Globe, 
-  Server, 
-  BarChart3, 
-  Smartphone, 
-  Search, 
-  MapPin, 
-  ShoppingCart, 
+import {
+  Globe,
+  Server,
+  BarChart3,
+  Smartphone,
+  Search,
+  MapPin,
+  ShoppingCart,
   Calendar,
   Mail,
   Camera,
@@ -24,17 +30,21 @@ import {
   FileText,
   Settings,
   Headphones,
-  Star
+  Star,
 } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Tjenester for Nettsider | Alta Nettsider - Komplett Webutvikling i Alta",
-  description: "Jeg leverer alle tjenester du trenger for en suksessfull nettside: domene, hosting, design, SEO, Google Analytics, og mer. Komplett webutvikling i Alta og Finnmark.",
-  keywords: "webutvikling tjenester Alta, domene registrering, webhosting Norge, SEO tjenester Finnmark, Google Analytics oppsett, nettside design Alta",
+  title:
+    "Tjenester for Nettsider | Alta Nettsider - Komplett Webutvikling i Alta",
+  description:
+    "Jeg leverer alle tjenester du trenger for en suksessfull nettside: domene, hosting, design, SEO, Google Analytics, og mer. Komplett webutvikling i Alta og Finnmark.",
+  keywords:
+    "webutvikling tjenester Alta, domene registrering, webhosting Norge, SEO tjenester Finnmark, Google Analytics oppsett, nettside design Alta",
   openGraph: {
     title: "Tjenester for Nettsider | Alta Nettsider",
-    description: "Komplett webutvikling med alle tjenester: domene, hosting, design, SEO og mer i Alta og Finnmark.",
+    description:
+      "Komplett webutvikling med alle tjenester: domene, hosting, design, SEO og mer i Alta og Finnmark.",
     url: "https://altanettsider.no/tjenester",
     type: "website",
   },
@@ -43,16 +53,17 @@ export const metadata: Metadata = {
 const coreServices = [
   {
     title: "Nettside Design & Utvikling",
-    description: "Moderne, responsiv nettside som fungerer perfekt på alle enheter",
+    description:
+      "Moderne, responsiv nettside som fungerer perfekt på alle enheter",
     icon: Globe,
     features: [
       "Responsive design (mobil, tablet, desktop)",
       "Moderne og profesjonelt utseende",
       "Rask lastetid og god ytelse",
       "Brukervennlig navigasjon",
-      "Tilpasset ditt brand og farger"
+      "Tilpasset ditt brand og farger",
     ],
-    category: "Utvikling"
+    category: "Utvikling",
   },
   {
     title: "Domene Registrering",
@@ -63,9 +74,9 @@ const coreServices = [
       "Internasjonale domener (.com, .org, etc.)",
       "Domene fornyelse og administrasjon",
       "DNS konfiguration",
-      "E-post viderekobling"
+      "E-post viderekobling",
     ],
-    category: "Hosting & Domene"
+    category: "Hosting & Domene",
   },
   {
     title: "Webhosting",
@@ -76,9 +87,9 @@ const coreServices = [
       "SSD lagring for rask ytelse",
       "Automatiske sikkerhetskopier",
       "SSL-sertifikat inkludert",
-      "24/7 overvåking"
+      "24/7 overvåking",
     ],
-    category: "Hosting & Domene"
+    category: "Hosting & Domene",
   },
   {
     title: "Google Analytics",
@@ -89,10 +100,10 @@ const coreServices = [
       "Konverteringssporing",
       "Månedlige rapporter",
       "Besøkerstatistikk",
-      "Måloppnåelse tracking"
+      "Måloppnåelse tracking",
     ],
-    category: "Markedsføring & SEO"
-  }
+    category: "Markedsføring & SEO",
+  },
 ];
 
 const marketingServices = [
@@ -105,9 +116,9 @@ const marketingServices = [
       "Åpningstider og kontaktinfo",
       "Bilder og produktgalleri",
       "Kundeomtaler administrasjon",
-      "Lokal SEO optimering"
+      "Lokal SEO optimering",
     ],
-    category: "Markedsføring & SEO"
+    category: "Markedsføring & SEO",
   },
   {
     title: "SEO Optimering",
@@ -118,9 +129,9 @@ const marketingServices = [
       "On-page SEO optimering",
       "Meta tags og beskrivelser",
       "Lokale søkeord fokus",
-      "Månedlig SEO rapport"
+      "Månedlig SEO rapport",
     ],
-    category: "Markedsføring & SEO"
+    category: "Markedsføring & SEO",
   },
   {
     title: "Google Ads Oppsett",
@@ -131,10 +142,10 @@ const marketingServices = [
       "Søkeord research",
       "Annonsetekst optimering",
       "Landing page tilpasning",
-      "Konverteringssporing"
+      "Konverteringssporing",
     ],
-    category: "Markedsføring & SEO"
-  }
+    category: "Markedsføring & SEO",
+  },
 ];
 
 const businessServices = [
@@ -147,9 +158,9 @@ const businessServices = [
       "Automatiske påminnelser",
       "Kunde administrasjon",
       "Betalingsintegrasjon",
-      "SMS/e-post notifikasjoner"
+      "SMS/e-post notifikasjoner",
     ],
-    category: "Business Funksjonalitet"
+    category: "Business Funksjonalitet",
   },
   {
     title: "Kontaktskjema & E-post",
@@ -160,9 +171,9 @@ const businessServices = [
       "E-post notifikasjoner",
       "Spam beskyttelse",
       "Automatiske svar",
-      "Lead tracking"
+      "Lead tracking",
     ],
-    category: "Business Funksjonalitet"
+    category: "Business Funksjonalitet",
   },
   {
     title: "E-handel Løsning",
@@ -173,10 +184,10 @@ const businessServices = [
       "Betalingsløsninger (Stripe, Vipps)",
       "Lager administrasjon",
       "Ordre håndtering",
-      "Kunde database"
+      "Kunde database",
     ],
-    category: "Business Funksjonalitet"
-  }
+    category: "Business Funksjonalitet",
+  },
 ];
 
 const designServices = [
@@ -189,9 +200,9 @@ const designServices = [
       "Flere design forslag",
       "Vektorformat (skalérbart)",
       "Fargevarianter",
-      "Bruksrettigheter inkludert"
+      "Bruksrettigheter inkludert",
     ],
-    category: "Design & Innhold"
+    category: "Design & Innhold",
   },
   {
     title: "Fotografering",
@@ -202,9 +213,9 @@ const designServices = [
       "Produktbilder",
       "Team/personale bilder",
       "Lokaler og fasiliteter",
-      "Bearbeidede høykvalitetsbilder"
+      "Bearbeidede høykvalitetsbilder",
     ],
-    category: "Design & Innhold"
+    category: "Design & Innhold",
   },
   {
     title: "Tekstskriving",
@@ -215,10 +226,10 @@ const designServices = [
       "Salgsrettede beskrivelser",
       "Om oss tekster",
       "Produktbeskrivelser",
-      "Blogginnlegg"
+      "Blogginnlegg",
     ],
-    category: "Design & Innhold"
-  }
+    category: "Design & Innhold",
+  },
 ];
 
 const supportServices = [
@@ -231,9 +242,9 @@ const supportServices = [
       "Software oppdateringer",
       "Sikkerhetsovervåking",
       "Teknisk support",
-      "Innholdsoppdateringer"
+      "Innholdsoppdateringer",
     ],
-    category: "Support & Vedlikehold"
+    category: "Support & Vedlikehold",
   },
   {
     title: "Kundesupport",
@@ -244,10 +255,10 @@ const supportServices = [
       "Telefonsupport",
       "Fjernhjelp (TeamViewer)",
       "Opplæring og veiledning",
-      "Prioritert support tilgjengelig"
+      "Prioritert support tilgjengelig",
     ],
-    category: "Support & Vedlikehold"
-  }
+    category: "Support & Vedlikehold",
+  },
 ];
 
 const allServices = [
@@ -255,7 +266,7 @@ const allServices = [
   ...marketingServices,
   ...businessServices,
   ...designServices,
-  ...supportServices
+  ...supportServices,
 ];
 
 export default function ServicesPage() {
@@ -263,207 +274,231 @@ export default function ServicesPage() {
     <main>
       <Navbar />
       <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
-      {/* Header Section */}
-      <section className="pt-32 pb-16 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <Badge variant="outline" className="mb-4 border-alta-blue text-alta-blue">
-            Komplett Webutvikling
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-alta-dark mb-6">
-            Alt du trenger for en <span className="text-alta-blue">suksessfull nettside</span>
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Fra domene og hosting til design og markedsføring - jeg leverer alle tjenester 
-            du trenger for å lykkes på nett. Én leverandør, komplett løsning.
-          </p>
-        </div>
-      </section>
-
-      {/* Core Services */}
-      <section className="pb-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-alta-dark mb-4">
-              Grunnleggende Tjenester
-            </h2>
-            <p className="text-gray-600">
-              Alt du trenger for en profesjonell nettside
+        {/* Header Section */}
+        <section className="pt-32 pb-16 px-4">
+          <div className="max-w-6xl mx-auto text-center">
+            <Badge
+              variant="outline"
+              className="mb-4 border-alta-blue text-alta-blue"
+            >
+              Komplett Webutvikling
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-alta-dark mb-6">
+              Alt du trenger for en{" "}
+              <span className="text-alta-blue">suksessfull nettside</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Fra domene og hosting til design og markedsføring - jeg leverer
+              alle tjenester du trenger for å lykkes på nett. Én leverandør,
+              komplett løsning.
             </p>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreServices.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="border-gray-200 hover:shadow-lg transition-all duration-300 group">
-                  <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 rounded-full bg-alta-blue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-alta-blue group-hover:text-white transition-colors">
-                      <IconComponent className="h-8 w-8 text-alta-blue group-hover:text-white" />
-                    </div>
-                    <CardTitle className="text-lg font-semibold text-alta-dark">{service.title}</CardTitle>
-                    <CardDescription className="text-gray-600 text-sm">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
+        {/* Core Services */}
+        <section className="pb-16 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-alta-dark mb-4">
+                Grunnleggende Tjenester
+              </h2>
+              <p className="text-gray-600">
+                Alt du trenger for en profesjonell nettside
+              </p>
+            </div>
 
-                  <CardContent className="pt-0">
-                    <ul className="space-y-2 mb-4">
-                      {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-alta-blue flex-shrink-0"></div>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    <div className="text-center">
-                      <Badge variant="outline" className="text-xs">
-                        {service.category}
-                      </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* All Services Grid */}
-      <section className="pb-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-alta-dark mb-4">
-              Alle Tjenester
-            </h2>
-            <p className="text-gray-600">
-              Komplett oversikt over alt jeg kan hjelpe deg med
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allServices.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="border-gray-200 hover:shadow-md transition-all duration-200 h-full">
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-lg bg-alta-blue/10 flex items-center justify-center">
-                        <IconComponent className="h-5 w-5 text-alta-blue" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {coreServices.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="border-gray-200 hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <CardHeader className="text-center pb-4">
+                      <div className="w-16 h-16 rounded-full bg-alta-blue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-alta-blue group-hover:text-white transition-colors">
+                        <IconComponent className="h-8 w-8 text-alta-blue group-hover:text-white" />
                       </div>
-                      <div>
-                        <CardTitle className="text-lg font-semibold text-alta-dark">{service.title}</CardTitle>
-                        <Badge variant="outline" className="text-xs mt-1">
+                      <CardTitle className="text-lg font-semibold text-alta-dark">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-gray-600 text-sm">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+
+                    <CardContent className="pt-0">
+                      <ul className="space-y-2 mb-4">
+                        {service.features
+                          .slice(0, 3)
+                          .map((feature, featureIndex) => (
+                            <li
+                              key={featureIndex}
+                              className="flex items-center gap-2 text-sm text-gray-600"
+                            >
+                              <div className="w-1.5 h-1.5 rounded-full bg-alta-blue flex-shrink-0"></div>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                      </ul>
+
+                      <div className="text-center">
+                        <Badge variant="outline" className="text-xs">
                           {service.category}
                         </Badge>
                       </div>
-                    </div>
-                    <CardDescription className="text-gray-600 text-sm">
-                      {service.description}
-                    </CardDescription>
-                  </CardHeader>
-
-                  <CardContent className="pt-0">
-                    <ul className="space-y-1.5 mb-4">
-                      {service.features.slice(0, 4).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
-                          <div className="w-1 h-1 rounded-full bg-alta-blue flex-shrink-0 mt-2"></div>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                      {service.features.length > 4 && (
-                        <li className="text-xs text-gray-500 italic">
-                          + {service.features.length - 4} flere funksjoner
-                        </li>
-                      )}
-                    </ul>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Process Section */}
-      <section className="pb-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-alta-dark mb-4">
-              Slik jobber jeg
-            </h2>
-            <p className="text-gray-600">
-              Fra første kontakt til ferdig nettside - min prosess
-            </p>
+        {/* All Services Grid */}
+        <section className="pb-16 px-4 bg-gray-50">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-alta-dark mb-4">
+                Alle Tjenester
+              </h2>
+              <p className="text-gray-600">
+                Komplett oversikt over alt jeg kan hjelpe deg med
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {allServices.map((service, index) => {
+                const IconComponent = service.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="border-gray-200 hover:shadow-md transition-all duration-200 h-full"
+                  >
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-lg bg-alta-blue/10 flex items-center justify-center">
+                          <IconComponent className="h-5 w-5 text-alta-blue" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-lg font-semibold text-alta-dark">
+                            {service.title}
+                          </CardTitle>
+                          <Badge variant="outline" className="text-xs mt-1">
+                            {service.category}
+                          </Badge>
+                        </div>
+                      </div>
+                      <CardDescription className="text-gray-600 text-sm">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+
+                    <CardContent className="pt-0">
+                      <ul className="space-y-1.5 mb-4">
+                        {service.features
+                          .slice(0, 4)
+                          .map((feature, featureIndex) => (
+                            <li
+                              key={featureIndex}
+                              className="flex items-center gap-2 text-sm text-gray-600"
+                            >
+                              <div className="w-1 h-1 rounded-full bg-alta-blue flex-shrink-0 mt-2"></div>
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        {service.features.length > 4 && (
+                          <li className="text-xs text-gray-500 italic">
+                            + {service.features.length - 4} flere funksjoner
+                          </li>
+                        )}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Konsultasjon",
-                description: "Jeg diskuterer dine behov og ønsker"
-              },
-              {
-                step: "2", 
-                title: "Planlegging",
-                description: "Jeg lager en detaljert plan og tidslinje"
-              },
-              {
-                step: "3",
-                title: "Utvikling",
-                description: "Jeg bygger nettsiden med regelmessige oppdateringer"
-              },
-              {
-                step: "4",
-                title: "Lansering",
-                description: "Testing, lansering og opplæring"
-              }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-alta-blue text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  {item.step}
+        {/* Process Section */}
+        <section className="pb-16 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-alta-dark mb-4">
+                Slik jobber jeg
+              </h2>
+              <p className="text-gray-600">
+                Fra første kontakt til ferdig nettside - min prosess
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-4 gap-8">
+              {[
+                {
+                  step: "1",
+                  title: "Konsultasjon",
+                  description: "Jeg diskuterer dine behov og ønsker",
+                },
+                {
+                  step: "2",
+                  title: "Planlegging",
+                  description: "Jeg lager en detaljert plan og tidslinje",
+                },
+                {
+                  step: "3",
+                  title: "Utvikling",
+                  description:
+                    "Jeg bygger nettsiden med regelmessige oppdateringer",
+                },
+                {
+                  step: "4",
+                  title: "Lansering",
+                  description: "Testing, lansering og opplæring",
+                },
+              ].map((item, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-alta-blue text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                    {item.step}
+                  </div>
+                  <h3 className="font-semibold text-alta-dark mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-600">{item.description}</p>
                 </div>
-                <h3 className="font-semibold text-alta-dark mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 bg-alta-blue text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Klar for å komme i gang?
-          </h2>
-          <p className="text-xl mb-8 text-blue-100">
-            La oss diskutere hvilke tjenester som passer best for din bedrift
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild
-              size="lg"
-              className="bg-white text-alta-blue hover:bg-gray-100"
-            >
-              <Link href="/#contact">
-                Få et tilbud
-              </Link>
-            </Button>
-            <Button 
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white bg-transparent text-white hover:bg-white hover:text-alta-blue"
-            >
-              <Link href="/priser">
-                Se priser
-              </Link>
-            </Button>
+        {/* CTA Section */}
+        <section className="py-16 px-4 bg-alta-blue text-white">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">
+              Klar for å komme i gang?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              La oss diskutere hvilke tjenester som passer best for din bedrift
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-alta-blue hover:bg-gray-100"
+              >
+                <Link href="/#contact">Få et tilbud</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white bg-transparent text-white hover:bg-white hover:text-alta-blue"
+              >
+                <Link href="/priser">Se priser</Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
       <Footer />
     </main>

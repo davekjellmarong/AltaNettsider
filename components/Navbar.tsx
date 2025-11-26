@@ -24,14 +24,14 @@ const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-lg shadow-alta-blue/10 py-2" 
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg shadow-alta-blue/10 py-2"
           : "bg-transparent py-4"
       )}
     >
       <div className="container-custom flex justify-between items-center">
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="text-alta-blue text-2xl font-bold transition-all duration-300 hover:scale-105 transform"
         >
           Alta<span className="text-alta-blue-light">Nettsider</span>
@@ -123,7 +123,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-            {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="container-custom py-4 flex flex-col space-y-4">

@@ -85,10 +85,10 @@ export default function PricingPage() {
               <h2 className="text-3xl font-bold text-alta-dark mb-4">
                 Avanserte Løsninger
               </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trenger din bedrift noe mer avansert? Jeg kan skreddersy
-              løsninger for alle behov. Kontakt meg for et tilpasset tilbud.
-            </p>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Trenger din bedrift noe mer avansert? Jeg kan skreddersy
+                løsninger for alle behov. Kontakt meg for et tilpasset tilbud.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -126,11 +126,11 @@ export default function PricingPage() {
                 <h3 className="text-2xl font-bold text-alta-dark mb-4">
                   Skreddersydde Løsninger
                 </h3>
-              <p className="text-gray-600 mb-6">
-                Har du spesielle behov eller ønsker en helt unik løsning? Jeg
-                utvikler skreddersydde nettsider og webapplikasjoner tilpasset
-                akkurat din virksomhet.
-              </p>
+                <p className="text-gray-600 mb-6">
+                  Har du spesielle behov eller ønsker en helt unik løsning? Jeg
+                  utvikler skreddersydde nettsider og webapplikasjoner tilpasset
+                  akkurat din virksomhet.
+                </p>
                 <Button asChild className="bg-alta-blue hover:bg-alta-blue/90">
                   <Link href="/kontakt">Kontakt meg for tilbud</Link>
                 </Button>
@@ -156,7 +156,10 @@ export default function PricingPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {ADDITIONAL_SERVICES.map((service, index) => (
-                <Card key={index} className="border-gray-200 hover:shadow-md transition-shadow">
+                <Card
+                  key={index}
+                  className="border-gray-200 hover:shadow-md transition-shadow"
+                >
                   <CardContent className="p-6">
                     <h3 className="font-semibold text-alta-dark mb-2">
                       {service.name}
@@ -234,8 +237,8 @@ export default function PricingPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">
-                    Jeg tilbyr fleksible vedlikeholdsavtaler tilpasset ditt behov
-                    og budsjett. Ta kontakt for å diskutere mulighetene.
+                    Jeg tilbyr fleksible vedlikeholdsavtaler tilpasset ditt
+                    behov og budsjett. Ta kontakt for å diskutere mulighetene.
                   </p>
                 </CardContent>
               </Card>
