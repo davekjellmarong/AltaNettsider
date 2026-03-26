@@ -53,8 +53,8 @@ const HowItWorks = () => {
           {/* Connection lines for desktop */}
           <div className="hidden md:block absolute top-16 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-alta-blue via-alta-blue-light to-alta-blue opacity-30"></div>
           
-          {steps.map((step, index) => (
-            <div key={index} className="relative text-center group cursor-pointer">
+          {steps.map((step) => (
+            <div key={step.number} className="relative text-center group cursor-pointer">
               {/* Hover card background */}
               <div className="absolute inset-0 bg-white rounded-xl shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-2 -z-10"></div>
               

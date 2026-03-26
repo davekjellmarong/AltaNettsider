@@ -3,6 +3,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+const navLinks = [
+  { href: "/", label: "Hjem" },
+  { href: "/om", label: "Om meg" },
+  { href: "/tjenester", label: "Tjenester" },
+  { href: "/priser", label: "Priser" },
+  { href: "/kontakt", label: "Kontakt" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -39,54 +47,23 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
-          <Link
-            href="/"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Hjem
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
-          <Link
-            href="/om"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Om meg
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
-          <Link
-            href="/tjenester"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Tjenester
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
-          <Link
-            href="/eksempler"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Eksempler
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
-          <Link
-            href="/priser"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Priser
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
-          <Link
-            href="/kontakt"
-            className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
-          >
-            Kontakt
-            <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-          </Link>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-alta-dark hover:text-alta-blue transition-all duration-300 relative group py-2"
+            >
+              {label}
+              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-alta-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Navigation Toggle */}
         <button
           className="md:hidden text-alta-dark"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Lukk meny" : "Åpne meny"}
         >
           {isMenuOpen ? (
             <svg
@@ -123,52 +100,19 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="container-custom py-4 flex flex-col space-y-4">
-            <Link
-              href="/"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Hjem
-            </Link>
-            <Link
-              href="/om"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Om meg
-            </Link>
-            <Link
-              href="/tjenester"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Tjenester
-            </Link>
-            <Link
-              href="/eksempler"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Eksempler
-            </Link>
-            <Link
-              href="/priser"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Priser
-            </Link>
-            <Link
-              href="/kontakt"
-              className="text-alta-dark hover:text-alta-blue transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Kontakt
-            </Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-alta-dark hover:text-alta-blue transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
         </div>
       )}

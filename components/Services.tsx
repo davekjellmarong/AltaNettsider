@@ -108,9 +108,9 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
-              key={index}
+              key={service.title}
               className="bg-alta-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
             >
               <div className="text-alta-blue mb-4">{service.icon}</div>

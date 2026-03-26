@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type PortfolioItem = {
   title: string;
@@ -38,11 +38,42 @@ const portfolioItems: PortfolioItem[] = [
     stack: "React, Node.js, Stripe",
     techTag: "React",
     successMetric: "300+ aktive brukere første måned"
+  },
+  {
+    title: "Aurora Spiseri",
+    category: "Restaurant",
+    image: "/aurora-spiseri.png",
+    description: "Elegant informasjonsside for en restaurant i Alta – meny, åpningstider og kontaktinfo.",
+    clientType: "Restaurant",
+    purpose: "Informasjonsside med meny og kontakt",
+    stack: "Next.js, Tailwind CSS",
+    techTag: "Next.js",
+    successMetric: "Profesjonell tilstedeværelse på nett"
+  },
+  {
+    title: "Havna Kafé",
+    category: "Kafé",
+    image: "/havna-kafe.png",
+    description: "Stilren nettside for en kafé i Bodø – presenterer menyen og atmosfæren på en innbydende måte.",
+    clientType: "Kafé",
+    purpose: "Informasjonsside med meny og beliggenhet",
+    stack: "Next.js, Tailwind CSS",
+    techTag: "Next.js",
+    successMetric: "Moderne og mobilvennlig design"
   }
 ];
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedProject(null);
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [selectedProject]);
 
   return (
     <section id="portfolio" className="section bg-gradient-to-b from-white to-gray-50">
@@ -58,9 +89,9 @@ const Portfolio = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {portfolioItems.map((item, index) => (
+          {portfolioItems.map((item) => (
             <div
-              key={index}
+              key={item.title}
               className="group cursor-pointer transform transition-all duration-500 hover:-translate-y-4 hover:scale-[1.02]"
               onClick={() => setSelectedProject(item)}
             >
@@ -72,7 +103,7 @@ const Portfolio = () => {
                     {item.techTag}
                   </div>
                 )}
-                
+
                 {/* Laptop screen bezel */}
                 <div className="bg-black rounded-lg p-4 border border-gray-600">
                   {/* Browser bar */}
@@ -86,7 +117,7 @@ const Portfolio = () => {
                       {item.title.toLowerCase()}.no
                     </div>
                   </div>
-                  
+
                   {/* Website preview */}
                   <div className="relative h-48 bg-white rounded-md overflow-hidden border border-gray-200 shadow-inner">
                     <Image
@@ -96,14 +127,14 @@ const Portfolio = () => {
                       height={400}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                     />
-                    
+
                     {/* Success metric */}
                     {item.successMetric && (
                       <div className="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1.5 rounded-full font-semibold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg">
                         📈 {item.successMetric}
                       </div>
                     )}
-                    
+
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-alta-blue via-alta-blue to-blue-700 bg-opacity-90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
                       <div className="text-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -116,7 +147,7 @@ const Portfolio = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Laptop base */}
                 <div className="h-3 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-xl border-t border-gray-500"></div>
               </div>
@@ -141,21 +172,31 @@ const Portfolio = () => {
 
       {/* Modal for project details */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedProject.title}
+            className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl font-bold text-alta-dark">{selectedProject.title}</h3>
-                <button 
+                <button
                   onClick={() => setSelectedProject(null)}
                   className="text-gray-500 hover:text-gray-700"
+                  aria-label="Lukk"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              
+
               <div className="mb-6">
                 <Image
                   src={selectedProject.image}
@@ -165,13 +206,13 @@ const Portfolio = () => {
                   className="w-full h-64 object-cover rounded-lg"
                 />
               </div>
-              
+
               <div className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-alta-dark mb-2">Beskrivelse</h4>
                   <p className="text-gray-600">{selectedProject.description}</p>
                 </div>
-                
+
                 <div className="grid md:grid-cols-3 gap-4">
                   <div>
                     <h4 className="font-semibold text-alta-dark mb-2">Klienttype</h4>
@@ -187,7 +228,7 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-6 pt-6 border-t border-gray-200 text-center">
                 <Link href="/kontakt" className="btn-primary" onClick={() => setSelectedProject(null)}>
                   Få tilsvarende løsning

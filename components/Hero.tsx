@@ -19,8 +19,8 @@ const Hero = () => {
             <Link href="/kontakt" className="btn-primary py-4 px-8 text-lg font-semibold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               Få gratis forslag
             </Link>
-            <Link href="/eksempler" className="btn-secondary py-4 px-8 text-lg font-semibold hover:bg-alta-blue-light hover:border-alta-blue-light hover:text-white transition-all duration-300 transform hover:-translate-y-0.5">
-              Se eksempler
+            <Link href="/tjenester" className="btn-secondary py-4 px-8 text-lg font-semibold hover:bg-alta-blue-light hover:border-alta-blue-light hover:text-white transition-all duration-300 transform hover:-translate-y-0.5">
+              Se tjenester
             </Link>
           </div>
           
@@ -36,6 +36,7 @@ const Hero = () => {
               className="rounded-lg w-full h-auto object-cover"
               width={600}
               height={400}
+              priority
             />
             {/* Overlay with local context */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur rounded-lg p-3">

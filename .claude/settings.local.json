@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/davekjellmarong/Desktop/Code/Projects/AltaNettsider/src -not -path */node_modules/* -type f)"
+    ]
+  }
+}

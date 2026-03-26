@@ -23,16 +23,10 @@ export const addContactToHubspot = async (formdata: FormData) => {
   const payload = {
     properties: {
       firstname: formdata.get("firstname"),
-      lastname: formdata.get("lastname"),
       email: formdata.get("email"),
-      topic: formdata.get("topic"),
       message: formdata.get("message"),
     },
   };
-  // const payload = {
-  //   properties: { ...formdata },
-  // };
-  console.log(payload);
   const response = await HubSpotMethods.addContact(payload, hubspotApiKey);
   return response;
 };
