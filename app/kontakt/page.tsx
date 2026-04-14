@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "Kontakt - Nettsider for lokale bedrifter i Alta | AltaNettsider",
   description:
-    "Trenger din lokale bedrift en ny nettside? Kontakt Dave for gratis forslag uten forpliktelser. Spesialist på nettsider for små bedrifter i Alta og Finnmark. Telefon: +47 412 34 567",
+    "Trenger din lokale bedrift en ny nettside? Kontakt Dave for gratis forslag uten forpliktelser. Spesialist på nettsider for små bedrifter i Alta og Finnmark. Telefon: +47 468 07 041",
 };
 
 export default function ContactPage() {

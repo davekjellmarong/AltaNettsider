@@ -207,10 +207,10 @@ const Contact = () => {
                   <div>
                     <p className="text-white font-medium">📞 Telefon</p>
                     <a
-                      href="tel:+4741234567"
+                      href="tel:+4746807041"
                       className="text-blue-200 hover:text-white transition-colors"
                     >
-                      +47 412 34 567
+                      +47 468 07 041
                     </a>
                   </div>
                 </div>
@@ -239,7 +239,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">📍 Lokasjon</p>
-                    <p className="text-blue-200">Breidablikk 14</p>
+                    <p className="text-blue-200">Myrveien 18B</p>
                     <p className="text-blue-200">9511 Alta, Finnmark</p>
                   </div>
                 </div>

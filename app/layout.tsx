@@ -11,11 +11,11 @@ const structuredData = {
   description:
     "Profesjonelle nettsider for lokale bedrifter i Alta og Finnmark",
   url: "https://altanettsider.no",
-  telephone: "+47-412-34-567",
+  telephone: "+47-468-07-041",
   email: "kontakt@altanettsider.no",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Breidablikk 14",
+    streetAddress: "Myrveien 18B",
     postalCode: "9511",
     addressLocality: "Alta",
     addressRegion: "Finnmark",
