@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useMutation } from "@tanstack/react-query";
-import { addContactToHubspot } from "@/src/server_actions/Hubspot";
+import { sendContactEmail } from "@/src/server_actions/sendEmail";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
@@ -12,7 +12,7 @@ const Contact = () => {
   const router = useRouter();
 
   const { mutate, isPending, isSuccess } = useMutation({
-    mutationFn: addContactToHubspot,
+    mutationFn: sendContactEmail,
     onSuccess: () => {
       toast.success("Takk! Jeg svarer innen 24 timer 🚀", {
         description: "Hold øye med innboksen din - forslaget kommer snart!",
