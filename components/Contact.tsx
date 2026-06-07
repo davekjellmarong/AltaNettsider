@@ -7,19 +7,34 @@ import { useMutation } from "@tanstack/react-query";
 import { sendContactEmail } from "@/src/server_actions/sendEmail";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import posthog from "posthog-js";
 
 const Contact = () => {
   const router = useRouter();
 
   const { mutate, isPending, isSuccess } = useMutation({
-    mutationFn: sendContactEmail,
+    mutationFn: async (formData: FormData) => {
+      posthog.capture("contact_form_submitted", {
+        has_email: !!formData.get("email"),
+        message_length: (formData.get("message") as string)?.length ?? 0,
+      });
+      const email = formData.get("email") as string | null;
+      if (email) {
+        posthog.identify(email, { email });
+      }
+      return sendContactEmail(formData);
+    },
     onSuccess: () => {
+      posthog.capture("contact_form_success");
       toast.success("Takk! Jeg svarer innen 24 timer 🚀", {
         description: "Hold øye med innboksen din - forslaget kommer snart!",
       });
       // router.push("/tilbud/takk");
     },
     onError: (error) => {
+      posthog.capture("contact_form_error", {
+        error_message: error instanceof Error ? error.message : String(error),
+      });
       toast.error("Ops, noe gikk galt. Prøv igjen eller ring meg direkte!");
       console.log(error);
     },
@@ -182,6 +197,11 @@ const Contact = () => {
                     <a
                       href="mailto:kontakt@altanettsider.no"
                       className="text-blue-200 hover:text-white transition-colors"
+                      onClick={() =>
+                        posthog.capture("contact_email_clicked", {
+                          location: "contact_section",
+                        })
+                      }
                     >
                       kontakt@altanettsider.no
                     </a>
@@ -209,6 +229,11 @@ const Contact = () => {
                     <a
                       href="tel:+4746807041"
                       className="text-blue-200 hover:text-white transition-colors"
+                      onClick={() =>
+                        posthog.capture("contact_phone_clicked", {
+                          location: "contact_section",
+                        })
+                      }
                     >
                       +47 468 07 041
                     </a>

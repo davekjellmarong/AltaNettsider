@@ -9,7 +9,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import Link from "next/link";
+import PricingCtaLink from "@/components/PricingCtaLink";
 import { PricingPlan } from "@/src/utils/pricing";
 
 interface PriceCardProps {
@@ -74,8 +74,12 @@ export default function PriceCard({
           ))}
         </ul>
 
-        <Link
+        <PricingCtaLink
           href={plan.ctaLink || "/#contact"}
+          planName={plan.name}
+          planPrice={plan.price}
+          planPopular={plan.popular}
+          variant={variant}
           className={`block w-full text-center py-3 px-6 rounded-md font-medium transition-colors ${
             plan.popular
               ? "bg-alta-blue text-white hover:bg-alta-blue/90"
@@ -83,7 +87,7 @@ export default function PriceCard({
           }`}
         >
           {plan.buttonText || "Velg denne"}
-        </Link>
+        </PricingCtaLink>
       </div>
     );
   }
@@ -160,9 +164,15 @@ export default function PriceCard({
               : "bg-gray-900 hover:bg-gray-800"
           }`}
         >
-          <Link href={plan.ctaLink || "/#contact"}>
+          <PricingCtaLink
+            href={plan.ctaLink || "/#contact"}
+            planName={plan.name}
+            planPrice={plan.price}
+            planPopular={plan.popular}
+            variant={variant}
+          >
             {plan.buttonText || "Velg denne"}
-          </Link>
+          </PricingCtaLink>
         </Button>
       </CardContent>
     </Card>

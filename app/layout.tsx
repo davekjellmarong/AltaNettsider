@@ -3,7 +3,6 @@ import "@/app/globals.css";
 import type { Metadata } from "next";
 import ReactQueryProvider from "@/src/providers/ReactQueryProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { PostHogProvider } from "@/components/PostHogProvider";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -145,12 +144,10 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <PostHogProvider>
-          <ReactQueryProvider>
-            <main>{children}</main>
-            <Toaster />
-          </ReactQueryProvider>
-        </PostHogProvider>
+        <ReactQueryProvider>
+          <main>{children}</main>
+          <Toaster />
+        </ReactQueryProvider>
       </body>
     </html>
   );
