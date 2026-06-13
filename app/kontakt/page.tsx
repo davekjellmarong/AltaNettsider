@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
 
 export const metadata: Metadata = {
   title: "Kontakt - Nettsider for lokale bedrifter i Alta | AltaNettsider",
@@ -11,12 +12,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <PageBackground />
       <Navbar />
-      <div className="pt-20">
+      <div className="pt-24">
         <Contact />
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -1,19 +1,29 @@
-import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import HowItWorks from "@/components/HowItWorks";
-import Testimonial from "@/components/Testimonial";
-import ClientLogos from "@/components/ClientLogos";
+import Footer from "@/components/Footer";
+import Hero from "@/components/sections/Hero";
+import Problem from "@/components/sections/Problem";
+import Solution from "@/components/sections/Solution";
+import Benefits from "@/components/sections/Benefits";
+import WhyDave from "@/components/sections/WhyDave";
+import Projects from "@/components/sections/Projects";
+import BeforeAfter from "@/components/sections/BeforeAfter";
+import ContactCta from "@/components/sections/ContactCta";
+import PageBackground from "@/components/PageBackground";
 
 export default function Home() {
   return (
-    <main>
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <PageBackground />
       <Navbar />
       <Hero />
-      <ClientLogos />
-      <HowItWorks />
-      <Testimonial />
+      <Problem />
+      <Solution />
+      <Benefits />
+      <WhyDave />
+      <Projects />
+      <BeforeAfter />
+      <ContactCta />
       <Footer />
-    </main>
+    </div>
   );
 }

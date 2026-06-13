@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function NettisiderForLokaleBedrifterPage() {
   return (
-    <main>
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
       <Navbar />
       <div className="pt-20">
         {/* SEO-optimized hero section */}
@@ -625,6 +625,6 @@ export default function NettisiderForLokaleBedrifterPage() {
         <Portfolio />
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }

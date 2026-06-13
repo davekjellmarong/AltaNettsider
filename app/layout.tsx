@@ -86,9 +86,9 @@ const structuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Nettsider for lokale bedrifter i Alta - AltaNettsider",
+  title: "Behold Facebook. Få en nettside. — AltaNettsider",
   description:
-    "Profesjonelle nettsider for lokale bedrifter i Alta og Finnmark. Jeg hjelper små bedrifter med å bli synlige på nett – raskt, enkelt og uten stress. Gratis forslag uten forpliktelser.",
+    "Gjør Facebook-siden din til en profesjonell nettilstedeværelse. For lokale bedrifter i Alta som bruker Facebook som sin nettside. Ingen ekstra arbeid — du fortsetter på Facebook som vanlig.",
   generator: "v0.dev",
   keywords:
     "nettsider for lokale bedrifter, nettsider Alta, nettsider Finnmark, små bedrifter nettside, lokal bedrift nettside, web utvikler Alta",
