@@ -35,9 +35,9 @@ export default function Solution() {
             Fortsett som før. La nettsiden ta seg av resten.
           </h2>
           <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-muted-foreground">
-            Du poster på Facebook som vanlig. Nettsiden henter automatisk inn
-            innholdet og presenterer det profesjonelt — strukturert, søkbart
-            og lett tilgjengelig for kundene dine.
+            Du poster på Facebook som vanlig. Jeg bygger nettsiden slik at
+            den henter inn innholdet ditt og presenterer det skikkelig —
+            strukturert, søkbart og lett tilgjengelig for kundene dine.
           </p>
         </div>
 
@@ -79,10 +79,10 @@ export default function Solution() {
                 Du får
               </div>
               <p className="text-xl font-semibold">
-                En profesjonell nettside som oppdaterer seg selv.
+                En profesjonell nettside som lever sammen med Facebook.
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Ingen ekstra system. Ingen ekstra arbeid.
+                Ingen ekstra system å lære. Ingen dobbeltarbeid.
               </p>
             </div>
           </div>

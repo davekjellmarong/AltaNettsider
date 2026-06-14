@@ -1,28 +1,6 @@
-const FEATURES = [
-  {
-    title: "Lokal tilstedeværelse",
-    description:
-      "Jeg bor i Alta. Vi kan ta et møte over en kaffe når som helst.",
-  },
-  {
-    title: "Personlig oppfølging",
-    description:
-      "Du snakker direkte med den som faktisk koder nettsiden din.",
-  },
-  {
-    title: "Rask kommunikasjon",
-    description:
-      "Ingen support-tickets. Jeg svarer på telefon og e-post med en gang.",
-  },
-  {
-    title: "Fast pris",
-    description: "Ingen skjulte kostnader eller kompliserte timepriser.",
-  },
-];
-
 export default function WhyDave() {
   return (
-    <section className="px-6 py-28">
+    <section className="border-y border-border bg-white/[0.015] px-6 py-28">
       <div className="mx-auto max-w-7xl">
         <div className="glass flex flex-col items-center gap-12 rounded-3xl p-8 md:flex-row md:p-16">
           <div className="relative shrink-0">
@@ -38,20 +16,28 @@ export default function WhyDave() {
           </div>
           <div className="flex-1">
             <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-              Møt Dave
+              Mannen bak
             </span>
             <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-4xl">
-              Ingen byrå. Ingen support-tickets. Bare meg.
+              Dave — Alta
             </h2>
-            <div className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
-              {FEATURES.map((f) => (
-                <div key={f.title}>
-                  <h4 className="mb-2 font-bold text-accent">{f.title}</h4>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {f.description}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p>
+                Jeg er utvikler, oppvokst i Nord-Norge, bor i Alta. Har bygd
+                nettsider profesjonelt siden 2020 — først for større selskaper
+                lenger sør, nå for bedrifter her hjemme.
+              </p>
+              <p>
+                Når jeg sier «her hjemme» mener jeg det bokstavelig. Vi kan
+                møtes over en kaffe, eller jeg kjører innom verkstedet ditt.
+                Du snakker direkte med den som faktisk koder nettsiden. Det
+                finnes ingen support-portal, ingen prosjektleder, ingen
+                ticket-system — fordi det finnes ingen andre enn meg.
+              </p>
+              <p className="text-foreground">
+                Jeg svarer på telefon. Jeg sender ikke faktura før du er
+                fornøyd.
+              </p>
             </div>
           </div>
         </div>

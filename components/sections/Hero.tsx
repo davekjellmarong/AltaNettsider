@@ -24,9 +24,13 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 max-w-[580px] text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-              Gjør Facebook-siden din til en profesjonell nettilstedeværelse
-              som hjelper kunder å finne deg, stole på deg og ta kontakt — uten
-              at du må endre hvordan du jobber.
+              Jeg bygger nettsider for lokale bedrifter som allerede har en
+              Facebook-side, men ingen god måte å vise det fram på. Du
+              fortsetter på Facebook. Jeg sørger for at kundene faktisk finner
+              deg.
+            </p>
+            <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              Av Dave · Alta, Norge
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -95,7 +99,7 @@ export default function Hero() {
             <div className="hidden md:flex flex-col items-center gap-2">
               <ArrowRight className="size-8 text-accent" />
               <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
-                automatisk
+                henter inn alt
               </span>
             </div>
 

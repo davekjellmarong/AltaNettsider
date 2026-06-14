@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
-import Benefits from "@/components/sections/Benefits";
+import Origin from "@/components/sections/Origin";
 import WhyDave from "@/components/sections/WhyDave";
 import Projects from "@/components/sections/Projects";
 import BeforeAfter from "@/components/sections/BeforeAfter";
@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Solution />
-      <Benefits />
+      <Origin />
       <WhyDave />
       <Projects />
       <BeforeAfter />
