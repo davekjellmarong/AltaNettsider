@@ -11,13 +11,29 @@ import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 const Contact = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: async (formData: FormData) => {
-      posthog.capture("contact_form_submitted", {
-        has_email: !!formData.get("email"),
-        message_length: (formData.get("message") as string)?.length ?? 0,
-      });
       const email = formData.get("email") as string | null;
+      const firstname = formData.get("firstname") as string | null;
+      const message = formData.get("message") as string | null;
+
+      posthog.capture("contact_form_submitted", {
+        has_email: !!email,
+        message_length: message?.length ?? 0,
+      });
+
       if (email) {
-        posthog.identify(email, { email });
+        posthog.identify(
+          email,
+          {
+            email,
+            name: firstname ?? undefined,
+            first_contact_source: "altanettsider_kontakt_form",
+            first_contact_url:
+              typeof window !== "undefined" ? window.location.href : undefined,
+          },
+          {
+            first_contact_at: new Date().toISOString(),
+          },
+        );
       }
       return sendContactEmail(formData);
     },

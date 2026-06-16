@@ -122,11 +122,9 @@ export const metadata: Metadata = {
     creator: "@davekjellmarong",
   },
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232563eb'/><text x='50' y='58' font-family='Arial,sans-serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>",
-    shortcut:
-      "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232563eb'/><text x='50' y='58' font-family='Arial,sans-serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>",
-    apple:
-      "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232563eb'/><text x='50' y='58' font-family='Arial,sans-serif' font-size='32' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>",
+    icon: "/logo-mark.svg",
+    shortcut: "/logo-mark.svg",
+    apple: "/logo-mark.svg",
   },
 };
 
