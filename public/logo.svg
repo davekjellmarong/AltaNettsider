@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 32" fill="none">
+  <text
+    x="0"
+    y="24"
+    font-family="Inter, ui-sans-serif, system-ui, sans-serif"
+    font-size="22"
+    font-weight="800"
+    letter-spacing="-0.02em"
+  >
+    <tspan fill="#5BB4E8">A</tspan><tspan fill="currentColor">lta</tspan><tspan fill="#5BB4E8">N</tspan><tspan fill="currentColor">ettsider</tspan>
+  </text>
+</svg>

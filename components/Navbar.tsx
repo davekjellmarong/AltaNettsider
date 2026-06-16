@@ -20,9 +20,11 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link
           href="/"
-          className="font-mono text-sm font-bold uppercase tracking-tighter text-foreground"
+          aria-label="AltaNettsider — hjem"
+          className="text-base font-extrabold tracking-tight text-foreground md:text-lg"
         >
-          AltaNettsider <span className="text-accent">//</span> Dave
+          <span className="text-accent">A</span>lta
+          <span className="text-accent">N</span>ettsider
         </Link>
 
         <div className="hidden gap-8 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:flex">
