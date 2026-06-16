@@ -29,29 +29,6 @@ export default function Origin() {
           </p>
         </div>
 
-        <div className="mt-12 rounded-2xl border border-accent/20 bg-accent/[0.04] p-8">
-          <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-            Slik begynte det
-          </div>
-          <p className="text-base leading-relaxed text-muted-foreground">
-            Jeg satt på kafé i Alta i fjor høst og snakket med en venn som
-            driver en liten lokal bedrift. Hun sa noe sånt som:{" "}
-            <span className="text-foreground">
-              «Jeg trenger en nettside, men jeg har ikke tid til å oppdatere
-              noe nytt sted. Jeg poster på Facebook hver dag — kan ikke
-              nettsiden bare vise det?»
-            </span>
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Jeg hadde hørt nesten det samme fra fem-seks andre i løpet av kort
-            tid. Rørleggeren. Kaféen. Idrettsklubben. Alle elsket Facebook.
-            Ingen ville bytte system. Alle visste at de tapte kunder fordi
-            informasjon var umulig å finne.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-foreground">
-            Da skiftet AltaNettsider fokus.
-          </p>
-        </div>
       </div>
     </section>
   );

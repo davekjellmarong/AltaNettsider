@@ -23,15 +23,21 @@ export default function WhyDave() {
             </h2>
             <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                Jeg er utvikler, oppvokst i Nord-Norge, bor i Alta. Har bygd
-                nettsider profesjonelt siden 2020 — først for større selskaper
-                lenger sør, nå for bedrifter her hjemme.
+                Jeg er utvikler. Bodde sørpå hele livet før jeg flyttet til
+                Alta for ni måneder siden. Det er kanskje også derfor jeg så
+                mønsteret med en gang — lokale bedrifter som bruker Facebook
+                som nettsiden sin, fordi det var det de allerede kunne.
               </p>
               <p>
-                Når jeg sier «her hjemme» mener jeg det bokstavelig. Vi kan
-                møtes over en kaffe, eller jeg kjører innom verkstedet ditt.
-                Du snakker direkte med den som faktisk koder nettsiden. Det
-                finnes ingen support-portal, ingen prosjektleder, ingen
+                Jeg har bygd nettsider profesjonelt i flere år, både for
+                større selskaper og mindre bedrifter. Nå har jeg satt det opp
+                slik at jeg kan ta én og én lokal kunde av gangen — og gjøre
+                det skikkelig.
+              </p>
+              <p>
+                Det betyr at vi kan møtes over en kaffe, eller jeg kjører
+                innom verkstedet ditt. Du snakker direkte med den som koder
+                nettsiden. Ingen support-portal, ingen prosjektleder, ingen
                 ticket-system — fordi det finnes ingen andre enn meg.
               </p>
               <p className="text-foreground">

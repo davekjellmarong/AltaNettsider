@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/sections/Hero";
 import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
+import Example from "@/components/sections/Example";
 import Origin from "@/components/sections/Origin";
 import WhyDave from "@/components/sections/WhyDave";
 import Projects from "@/components/sections/Projects";
@@ -18,6 +19,7 @@ export default function Home() {
       <Hero />
       <Problem />
       <Solution />
+      <Example />
       <Origin />
       <WhyDave />
       <Projects />

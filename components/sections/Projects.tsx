@@ -28,11 +28,11 @@ export default function Projects() {
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <h2 className="max-w-md text-balance text-4xl font-bold tracking-tight md:text-5xl">
-              Ekte bedrifter. Ekte resultater.
+              Ekte bedrifter. Ekte nettsider.
             </h2>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Lokale bedrifter i Alta som gikk fra Facebook-side til
-              profesjonell nettilstedeværelse.
+              Et utvalg av bedrifter jeg har jobbet med — her er noen av
+              nettsidene som er ute og lever i dag.
             </p>
           </div>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
