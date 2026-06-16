@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import PricingCtaLink from "@/components/PricingCtaLink";
 import { PricingPlan } from "@/src/utils/pricing";
@@ -24,157 +15,85 @@ export default function PriceCard({
   className = "",
 }: PriceCardProps) {
   const IconComponent = plan.icon;
+  const popular = !!plan.popular;
 
-  if (variant === "compact") {
-    // Simplified version for homepage/landing pages
-    return (
-      <div
-        className={`relative bg-white rounded-xl p-8 transition-all duration-300 border-2 ${
-          plan.popular
-            ? "border-alta-blue shadow-2xl shadow-alta-blue/25 transform hover:scale-105"
-            : "border-gray-100 hover:border-alta-blue/30 shadow-lg hover:shadow-xl"
-        } ${className}`}
-      >
-        {plan.popular && (
-          <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <div className="bg-gradient-to-r from-alta-blue to-alta-blue-light text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-alta-blue to-alta-blue-light rounded-full blur opacity-75"></div>
-              <span className="relative">⭐ Mest populær</span>
-            </div>
-          </div>
-        )}
-
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-alta-dark mb-2">
-            {plan.name}
-          </h3>
-          <div className="mb-4">
-            <span className="text-4xl font-bold text-alta-blue">
-              {plan.price}
-            </span>
-            <span className="text-gray-600"> kr</span>
-          </div>
-          <p className="text-gray-600">{plan.description}</p>
-        </div>
-
-        <ul className="space-y-3 mb-8">
-          {plan.features.map((feature, featureIndex) => (
-            <li key={featureIndex} className="flex items-start">
-              <div className="w-5 h-5 mt-0.5 mr-3 flex-shrink-0">
-                <Check className="w-4 h-4 text-alta-blue" />
-              </div>
-              <span
-                className={`text-gray-700 ${
-                  feature.highlight ? "font-semibold" : ""
-                }`}
-              >
-                {feature.text}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <PricingCtaLink
-          href={plan.ctaLink || "/#contact"}
-          planName={plan.name}
-          planPrice={plan.price}
-          planPopular={plan.popular}
-          variant={variant}
-          className={`block w-full text-center py-3 px-6 rounded-md font-medium transition-colors ${
-            plan.popular
-              ? "bg-alta-blue text-white hover:bg-alta-blue/90"
-              : "bg-alta-white text-alta-dark border border-alta-blue hover:bg-alta-gray"
-          }`}
-        >
-          {plan.buttonText || "Velg denne"}
-        </PricingCtaLink>
-      </div>
-    );
-  }
-
-  // Full version for pricing page
   return (
-    <Card
-      className={`relative ${
-        plan.popular
-          ? "border-alta-blue ring-2 ring-alta-blue/20 scale-105"
-          : "border-gray-200"
-      } hover:shadow-lg transition-all duration-300 ${className}`}
+    <div
+      className={`glass relative flex h-full flex-col rounded-2xl p-8 ${
+        popular ? "glow-accent border-accent/30 bg-accent/[0.03]" : ""
+      } ${className}`}
     >
-      {plan.popular && (
-        <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-          <Badge className="bg-alta-blue text-white px-4 py-1">
+      {popular && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+          <span className="rounded-full bg-accent px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-accent-foreground">
             Mest populær
-          </Badge>
+          </span>
         </div>
       )}
 
-      <CardHeader className="text-center pb-6">
+      <div className="mb-6">
         <div
-          className={`w-16 h-16 rounded-full ${
-            plan.popular ? "bg-alta-blue" : "bg-gray-100"
-          } flex items-center justify-center mx-auto mb-4`}
+          className={`mb-4 flex size-12 items-center justify-center rounded-full ${
+            popular ? "bg-accent/20" : "bg-white/[0.04]"
+          }`}
         >
           <IconComponent
-            className={`h-8 w-8 ${
-              plan.popular ? "text-white" : "text-alta-blue"
-            }`}
+            className={`size-5 ${popular ? "text-accent" : "text-foreground"}`}
           />
         </div>
-        <CardTitle className="text-2xl font-bold text-alta-dark">
-          {plan.name}
-        </CardTitle>
-        <CardDescription className="text-gray-600 mt-2">
-          {plan.description}
-        </CardDescription>
-        <div className="mt-4">
-          <span className="text-3xl font-bold text-alta-dark">
+        <h3 className="text-2xl font-bold">{plan.name}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
+      </div>
+
+      <div className="mb-6">
+        <div className="flex items-baseline gap-2">
+          <span className="text-4xl font-bold tracking-tight">
             {plan.price}
           </span>
-          <span className="text-gray-500 ml-2">kr</span>
+          <span className="font-mono text-xs text-muted-foreground">kr</span>
         </div>
         {plan.deliveryTime && (
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             Leveringstid: {plan.deliveryTime}
           </p>
         )}
-      </CardHeader>
+      </div>
 
-      <CardContent className="pt-0">
-        <ul className="space-y-3 mb-8">
-          {plan.features.map((feature, featureIndex) => (
-            <li key={featureIndex} className="flex items-start gap-3">
-              <Check className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-              <span
-                className={`text-gray-600 text-sm ${
-                  feature.highlight ? "font-semibold text-alta-blue" : ""
-                }`}
-              >
-                {feature.text}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <ul className="mb-8 flex-1 space-y-3">
+        {plan.features.map((feature, i) => (
+          <li key={i} className="flex items-start gap-3 text-sm">
+            <Check
+              className={`mt-0.5 size-4 shrink-0 ${
+                feature.highlight ? "text-accent" : "text-accent/70"
+              }`}
+            />
+            <span
+              className={
+                feature.highlight
+                  ? "font-medium text-foreground"
+                  : "text-muted-foreground"
+              }
+            >
+              {feature.text}
+            </span>
+          </li>
+        ))}
+      </ul>
 
-        <Button
-          asChild
-          className={`w-full ${
-            plan.popular
-              ? "bg-alta-blue hover:bg-alta-blue/90"
-              : "bg-gray-900 hover:bg-gray-800"
-          }`}
-        >
-          <PricingCtaLink
-            href={plan.ctaLink || "/#contact"}
-            planName={plan.name}
-            planPrice={plan.price}
-            planPopular={plan.popular}
-            variant={variant}
-          >
-            {plan.buttonText || "Velg denne"}
-          </PricingCtaLink>
-        </Button>
-      </CardContent>
-    </Card>
+      <PricingCtaLink
+        href={plan.ctaLink || "/kontakt"}
+        planName={plan.name}
+        planPrice={plan.price}
+        planPopular={popular}
+        variant={variant}
+        className={`inline-flex w-full items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-tight transition-colors ${
+          popular
+            ? "bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_10px_40px_-10px_color-mix(in_oklab,hsl(var(--accent))_50%,transparent)]"
+            : "border border-border bg-transparent text-foreground hover:bg-white/5"
+        }`}
+      >
+        {plan.buttonText || "Velg denne"}
+      </PricingCtaLink>
+    </div>
   );
 }

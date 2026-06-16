@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
 
 export const metadata: Metadata = {
   title: "Om oss - AltaNettsider | Nettsider for lokale bedrifter i Alta",
@@ -11,12 +12,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <PageBackground />
       <Navbar />
-      <div className="pt-20">
+      <div className="pt-24">
         <About />
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }

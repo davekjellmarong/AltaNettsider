@@ -271,9 +271,10 @@ const allServices = [
 
 export default function ServicesPage() {
   return (
-    <main>
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      {/* @ts-ignore */}
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50 to-white">
+      <div className="min-h-screen">
         {/* Header Section */}
         <section className="pt-32 pb-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
@@ -501,6 +502,6 @@ export default function ServicesPage() {
         </section>
       </div>
       <Footer />
-    </main>
+    </div>
   );
 }
