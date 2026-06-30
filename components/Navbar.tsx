@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: "/#prosjekter", label: "Prosjekter" },
   { href: "/#prosess", label: "Prosess" },
   { href: "/priser", label: "Pris" },
+  { href: "/articles", label: "Artikler" },
 ];
 
 export default function Navbar() {
