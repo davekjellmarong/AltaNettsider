@@ -1,20 +1,12 @@
 import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PageBackground from "@/components/PageBackground";
 import {
   Globe,
   Server,
   BarChart3,
-  Smartphone,
   Search,
   MapPin,
   ShoppingCart,
@@ -22,485 +14,312 @@ import {
   Mail,
   Camera,
   Palette,
-  Code,
-  Shield,
-  Zap,
-  Users,
-  MessageSquare,
   FileText,
   Settings,
   Headphones,
-  Star,
+  ArrowRight,
 } from "lucide-react";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "Tjenester for Nettsider | Alta Nettsider - Komplett Webutvikling i Alta",
+    "Hva du får når jeg bygger nettsiden din — for lokale bedrifter i Alta | AltaNettsider",
   description:
-    "Jeg leverer alle tjenester du trenger for en suksessfull nettside: domene, hosting, design, SEO, Google Analytics, og mer. Komplett webutvikling i Alta og Finnmark.",
+    "For lokale bedrifter i Alta som bruker Facebook i dag. Her er alt som er inkludert — enkel oversikt, ingen tekniske omveier.",
   keywords:
-    "webutvikling tjenester Alta, domene registrering, webhosting Norge, SEO tjenester Finnmark, Google Analytics oppsett, nettside design Alta",
+    "nettside for lokale bedrifter Alta, nettside for liten bedrift, nettside for Facebook-side, hva er inkludert i en nettside, nettside Alta enkel pris",
   openGraph: {
-    title: "Tjenester for Nettsider | Alta Nettsider",
+    title: "Hva du får når jeg bygger nettsiden din",
     description:
-      "Komplett webutvikling med alle tjenester: domene, hosting, design, SEO og mer i Alta og Finnmark.",
+      "Enkel oversikt over alt som er inkludert når jeg lager nettside for lokale bedrifter i Alta.",
     url: "https://altanettsider.no/tjenester",
     type: "website",
   },
 };
 
-const coreServices = [
+interface Service {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const groups: {
+  heading: string;
+  intro: string;
+  services: Service[];
+}[] = [
   {
-    title: "Nettside Design & Utvikling",
+    heading: "Selve nettsiden",
+    intro:
+      "En profesjonell nettside som ser bra ut på både mobil og PC, og er lett å bruke.",
+    services: [
+      {
+        title: "En egen nettside",
+        description:
+          "Bygd for din bedrift — ikke en mal du kjenner igjen fra andre. Fungerer like fint på mobil som PC, laster raskt, og er enkel å bruke.",
+        icon: Globe,
+      },
+      {
+        title: "Din egen adresse på nett",
+        description:
+          "Jeg tar meg av domenet (adressen kundene skriver inn — som «dinbedrift.no»). Du eier det, jeg fikser oppsettet.",
+        icon: Search,
+      },
+      {
+        title: "Nettsiden holdes online",
+        description:
+          "Sikkerhetskopier, SSL-sertifikat og oppetid — alt inkludert. Du trenger ikke tenke på teknikken.",
+        icon: Server,
+      },
+    ],
+  },
+  {
+    heading: "Så kunder faktisk finner deg",
+    intro:
+      "Google, Facebook, Google-kartet. Vi gjør det slik at folk i Alta finner bedriften din når de leter.",
+    services: [
+      {
+        title: "Synlig i Google og på Google-kartet",
+        description:
+          "Google My Business settes opp med åpningstider, kontakt og bilder — så folk som søker «frisør i Alta» eller «rørlegger Alta» finner deg.",
+        icon: MapPin,
+      },
+      {
+        title: "Facebook-innleggene dine på nettsiden",
+        description:
+          "Poster du på Facebook som vanlig? Bra. Innleggene dine kan vises automatisk på nettsiden — du gjør ingenting ekstra.",
+        icon: Globe,
+      },
+      {
+        title: "Enkle rapporter — se hva som faktisk skjer",
+        description:
+          "Hvor mange besøker nettsiden? Hvor kommer de fra? Kort, forståelig oppsummering — ikke Google Analytics-labyrint.",
+        icon: BarChart3,
+      },
+    ],
+  },
+  {
+    heading: "Så kundene kan ta kontakt",
+    intro: "En nettside skal gjøre det enkelt for folk å ringe, skrive eller bestille.",
+    services: [
+      {
+        title: "Kontaktskjema",
+        description:
+          "Kunder fyller ut skjemaet på nettsiden, du får meldingen rett i innboksen. Ingen ekstra pålogging.",
+        icon: Mail,
+      },
+      {
+        title: "Kunder kan bestille tid selv",
+        description:
+          "Hvis du booker inn kunder (frisør, terapeut, verksted) — de kan reservere direkte på nettsiden. Slipper ringing og SMS-ping-pong.",
+        icon: Calendar,
+      },
+      {
+        title: "Nettbutikk hvis du selger noe",
+        description:
+          "Selger du produkter? Full nettbutikk med Vipps og kortbetaling. (Ikke inkludert i grunnpakken — se «Priser».)",
+        icon: ShoppingCart,
+      },
+    ],
+  },
+  {
+    heading: "Så det ser ordentlig ut",
+    intro:
+      "Trenger du logo eller ordentlige bilder først? Vi kan ordne det som en del av samme prosjekt.",
+    services: [
+      {
+        title: "Logo",
+        description:
+          "Enkelt, gjenkjennelig logo som passer bedriften din. Får det i alle filformatene du trenger.",
+        icon: Palette,
+      },
+      {
+        title: "Bilder av bedriften",
+        description:
+          "Har du gode bilder allerede? Bruker vi dem. Ellers kan jeg hjelpe deg få tatt bilder som passer.",
+        icon: Camera,
+      },
+      {
+        title: "Tekst som er lett å lese",
+        description:
+          "Jeg skriver om det er nødvendig, eller pusser opp teksten du har. Skal være tydelig — ikke fyllstoff.",
+        icon: FileText,
+      },
+    ],
+  },
+  {
+    heading: "Så du ikke sitter alene med det etterpå",
+    intro: "Nettsiden er ikke ferdig når den er live. Jeg er her når du trenger meg.",
+    services: [
+      {
+        title: "Vedlikehold — jeg tar det tekniske",
+        description:
+          "Sikkerhet, oppdateringer, sikkerhetskopier. Du merker aldri at det gjøres. Nettsiden bare fungerer.",
+        icon: Settings,
+      },
+      {
+        title: "Du snakker direkte med meg",
+        description:
+          "Ingen support-portal. Ingen ticket-system. Ring, send SMS, e-post, eller ta en kaffe. Jeg svarer.",
+        icon: Headphones,
+      },
+    ],
+  },
+];
+
+const process = [
+  {
+    step: "1",
+    title: "Vi tar en prat",
     description:
-      "Moderne, responsiv nettside som fungerer perfekt på alle enheter",
-    icon: Globe,
-    features: [
-      "Responsive design (mobil, tablet, desktop)",
-      "Moderne og profesjonelt utseende",
-      "Rask lastetid og god ytelse",
-      "Brukervennlig navigasjon",
-      "Tilpasset ditt brand og farger",
-    ],
-    category: "Utvikling",
+      "Uforpliktende. Jeg spør om bedriften din, du forteller hva du trenger.",
   },
   {
-    title: "Domene Registrering",
-    description: "Sikre det perfekte domenenavnet for din bedrift",
-    icon: Search,
-    features: [
-      ".no domene registrering",
-      "Internasjonale domener (.com, .org, etc.)",
-      "Domene fornyelse og administrasjon",
-      "DNS konfiguration",
-      "E-post viderekobling",
-    ],
-    category: "Hosting & Domene",
+    step: "2",
+    title: "Du får et forslag",
+    description:
+      "Konkret pris, konkret leveringstid, konkret hva som er inkludert. Ingen overraskelser.",
   },
   {
-    title: "Webhosting",
-    description: "Pålitelig og rask hosting for din nettside",
-    icon: Server,
-    features: [
-      "99.9% oppetid garanti",
-      "SSD lagring for rask ytelse",
-      "Automatiske sikkerhetskopier",
-      "SSL-sertifikat inkludert",
-      "24/7 overvåking",
-    ],
-    category: "Hosting & Domene",
+    step: "3",
+    title: "Jeg bygger",
+    description:
+      "Vanligvis 1–2 uker. Du får se det underveis, ikke bare til slutt.",
   },
   {
-    title: "Google Analytics",
-    description: "Følg med på besøkende og ytelse på nettsiden din",
-    icon: BarChart3,
-    features: [
-      "Google Analytics 4 oppsett",
-      "Konverteringssporing",
-      "Månedlige rapporter",
-      "Besøkerstatistikk",
-      "Måloppnåelse tracking",
-    ],
-    category: "Markedsføring & SEO",
+    step: "4",
+    title: "Vi går live",
+    description:
+      "Jeg fikser lansering og lærer deg opp om det er noe du vil kunne endre selv.",
   },
-];
-
-const marketingServices = [
-  {
-    title: "Google My Business",
-    description: "Bli synlig på Google Maps og lokale søk",
-    icon: MapPin,
-    features: [
-      "Profil opprettelse og optimering",
-      "Åpningstider og kontaktinfo",
-      "Bilder og produktgalleri",
-      "Kundeomtaler administrasjon",
-      "Lokal SEO optimering",
-    ],
-    category: "Markedsføring & SEO",
-  },
-  {
-    title: "SEO Optimering",
-    description: "Bli funnet av dine kunder på Google",
-    icon: Search,
-    features: [
-      "Søkeord research og analyse",
-      "On-page SEO optimering",
-      "Meta tags og beskrivelser",
-      "Lokale søkeord fokus",
-      "Månedlig SEO rapport",
-    ],
-    category: "Markedsføring & SEO",
-  },
-  {
-    title: "Google Ads Oppsett",
-    description: "Start med betalt annonsering på Google",
-    icon: Zap,
-    features: [
-      "Kampanje opprettelse",
-      "Søkeord research",
-      "Annonsetekst optimering",
-      "Landing page tilpasning",
-      "Konverteringssporing",
-    ],
-    category: "Markedsføring & SEO",
-  },
-];
-
-const businessServices = [
-  {
-    title: "Online Booking System",
-    description: "La kunder bestille timer direkte på nettsiden",
-    icon: Calendar,
-    features: [
-      "Kalender integrasjon",
-      "Automatiske påminnelser",
-      "Kunde administrasjon",
-      "Betalingsintegrasjon",
-      "SMS/e-post notifikasjoner",
-    ],
-    category: "Business Funksjonalitet",
-  },
-  {
-    title: "Kontaktskjema & E-post",
-    description: "Motta henvendelser direkte på e-post",
-    icon: Mail,
-    features: [
-      "Tilpassede kontaktskjemaer",
-      "E-post notifikasjoner",
-      "Spam beskyttelse",
-      "Automatiske svar",
-      "Lead tracking",
-    ],
-    category: "Business Funksjonalitet",
-  },
-  {
-    title: "E-handel Løsning",
-    description: "Selg produkter direkte fra nettsiden din",
-    icon: ShoppingCart,
-    features: [
-      "Produktkatalog",
-      "Betalingsløsninger (Stripe, Vipps)",
-      "Lager administrasjon",
-      "Ordre håndtering",
-      "Kunde database",
-    ],
-    category: "Business Funksjonalitet",
-  },
-];
-
-const designServices = [
-  {
-    title: "Logo Design",
-    description: "Profesjonelt logo som representerer din bedrift",
-    icon: Palette,
-    features: [
-      "Unique logo design",
-      "Flere design forslag",
-      "Vektorformat (skalérbart)",
-      "Fargevarianter",
-      "Bruksrettigheter inkludert",
-    ],
-    category: "Design & Innhold",
-  },
-  {
-    title: "Fotografering",
-    description: "Profesjonelle bilder av din bedrift og produkter",
-    icon: Camera,
-    features: [
-      "Bedriftsfotografering",
-      "Produktbilder",
-      "Team/personale bilder",
-      "Lokaler og fasiliteter",
-      "Bearbeidede høykvalitetsbilder",
-    ],
-    category: "Design & Innhold",
-  },
-  {
-    title: "Tekstskriving",
-    description: "Engasjerende innhold som selger",
-    icon: FileText,
-    features: [
-      "SEO optimerte tekster",
-      "Salgsrettede beskrivelser",
-      "Om oss tekster",
-      "Produktbeskrivelser",
-      "Blogginnlegg",
-    ],
-    category: "Design & Innhold",
-  },
-];
-
-const supportServices = [
-  {
-    title: "Vedlikehold & Support",
-    description: "Hold nettsiden oppdatert og sikker",
-    icon: Settings,
-    features: [
-      "Månedlige sikkerhetskopier",
-      "Software oppdateringer",
-      "Sikkerhetsovervåking",
-      "Teknisk support",
-      "Innholdsoppdateringer",
-    ],
-    category: "Support & Vedlikehold",
-  },
-  {
-    title: "Kundesupport",
-    description: "Hjelp når du trenger det",
-    icon: Headphones,
-    features: [
-      "E-post support",
-      "Telefonsupport",
-      "Fjernhjelp (TeamViewer)",
-      "Opplæring og veiledning",
-      "Prioritert support tilgjengelig",
-    ],
-    category: "Support & Vedlikehold",
-  },
-];
-
-const allServices = [
-  ...coreServices,
-  ...marketingServices,
-  ...businessServices,
-  ...designServices,
-  ...supportServices,
 ];
 
 export default function ServicesPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
-      {/* @ts-ignore */}
+      <PageBackground />
       <Navbar />
-      <div className="min-h-screen">
-        {/* Header Section */}
-        <section className="pt-32 pb-16 px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <Badge
-              variant="outline"
-              className="mb-4 border-alta-blue text-alta-blue"
-            >
-              Komplett Webutvikling
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-alta-dark mb-6">
-              Alt du trenger for en{" "}
-              <span className="text-alta-blue">suksessfull nettside</span>
+
+      <div className="pt-32">
+        {/* Hero */}
+        <section className="px-6 pb-16">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+              Hva du får
+            </span>
+            <h1 className="mt-4 text-balance text-5xl font-extrabold tracking-tighter md:text-6xl lg:text-7xl">
+              Alt som er inkludert{" "}
+              <span className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
+                når jeg bygger nettsiden din.
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Fra domene og hosting til design og markedsføring - jeg leverer
-              alle tjenester du trenger for å lykkes på nett. Én leverandør,
-              komplett løsning.
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
+              Ingen tekniske omveier. Ingen skjulte moduler du må kjøpe
+              senere. Her er hva du faktisk får — for lokale bedrifter i Alta
+              som bruker Facebook i dag, og som vil ha en profesjonell
+              nettside i tillegg.
             </p>
           </div>
         </section>
 
-        {/* Core Services */}
-        <section className="pb-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-alta-dark mb-4">
-                Grunnleggende Tjenester
-              </h2>
-              <p className="text-gray-600">
-                Alt du trenger for en profesjonell nettside
-              </p>
-            </div>
+        {/* Grouped services */}
+        <section className="px-6 pb-24">
+          <div className="mx-auto max-w-6xl space-y-16">
+            {groups.map((group) => (
+              <div key={group.heading}>
+                <div className="mb-10 max-w-2xl">
+                  <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+                    {group.heading}
+                  </h2>
+                  <p className="mt-3 text-muted-foreground">{group.intro}</p>
+                </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {coreServices.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="border-gray-200 hover:shadow-lg transition-all duration-300 group"
-                  >
-                    <CardHeader className="text-center pb-4">
-                      <div className="w-16 h-16 rounded-full bg-alta-blue/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-alta-blue group-hover:text-white transition-colors">
-                        <IconComponent className="h-8 w-8 text-alta-blue group-hover:text-white" />
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {group.services.map((service) => (
+                    <div
+                      key={service.title}
+                      className="glass rounded-2xl p-6"
+                    >
+                      <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-accent/10">
+                        <service.icon className="size-4 text-accent" />
                       </div>
-                      <CardTitle className="text-lg font-semibold text-alta-dark">
-                        {service.title}
-                      </CardTitle>
-                      <CardDescription className="text-gray-600 text-sm">
+                      <h3 className="mb-2 font-semibold">{service.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">
                         {service.description}
-                      </CardDescription>
-                    </CardHeader>
-
-                    <CardContent className="pt-0">
-                      <ul className="space-y-2 mb-4">
-                        {service.features
-                          .slice(0, 3)
-                          .map((feature, featureIndex) => (
-                            <li
-                              key={featureIndex}
-                              className="flex items-center gap-2 text-sm text-gray-600"
-                            >
-                              <div className="w-1.5 h-1.5 rounded-full bg-alta-blue flex-shrink-0"></div>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                      </ul>
-
-                      <div className="text-center">
-                        <Badge variant="outline" className="text-xs">
-                          {service.category}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* All Services Grid */}
-        <section className="pb-16 px-4 bg-gray-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-alta-dark mb-4">
-                Alle Tjenester
-              </h2>
-              <p className="text-gray-600">
-                Komplett oversikt over alt jeg kan hjelpe deg med
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allServices.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <Card
-                    key={index}
-                    className="border-gray-200 hover:shadow-md transition-all duration-200 h-full"
-                  >
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 rounded-lg bg-alta-blue/10 flex items-center justify-center">
-                          <IconComponent className="h-5 w-5 text-alta-blue" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-lg font-semibold text-alta-dark">
-                            {service.title}
-                          </CardTitle>
-                          <Badge variant="outline" className="text-xs mt-1">
-                            {service.category}
-                          </Badge>
-                        </div>
-                      </div>
-                      <CardDescription className="text-gray-600 text-sm">
-                        {service.description}
-                      </CardDescription>
-                    </CardHeader>
-
-                    <CardContent className="pt-0">
-                      <ul className="space-y-1.5 mb-4">
-                        {service.features
-                          .slice(0, 4)
-                          .map((feature, featureIndex) => (
-                            <li
-                              key={featureIndex}
-                              className="flex items-center gap-2 text-sm text-gray-600"
-                            >
-                              <div className="w-1 h-1 rounded-full bg-alta-blue flex-shrink-0 mt-2"></div>
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        {service.features.length > 4 && (
-                          <li className="text-xs text-gray-500 italic">
-                            + {service.features.length - 4} flere funksjoner
-                          </li>
-                        )}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Process Section */}
-        <section className="pb-16 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-alta-dark mb-4">
+        {/* Process */}
+        <section className="border-y border-border bg-white/[0.015] px-6 py-24">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-14 text-center">
+              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
                 Slik jobber jeg
+              </span>
+              <h2 className="mt-4 text-balance text-4xl font-bold tracking-tight md:text-5xl">
+                Fra første prat til ferdig nettside.
               </h2>
-              <p className="text-gray-600">
-                Fra første kontakt til ferdig nettside - min prosess
-              </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                {
-                  step: "1",
-                  title: "Konsultasjon",
-                  description: "Jeg diskuterer dine behov og ønsker",
-                },
-                {
-                  step: "2",
-                  title: "Planlegging",
-                  description: "Jeg lager en detaljert plan og tidslinje",
-                },
-                {
-                  step: "3",
-                  title: "Utvikling",
-                  description:
-                    "Jeg bygger nettsiden med regelmessige oppdateringer",
-                },
-                {
-                  step: "4",
-                  title: "Lansering",
-                  description: "Testing, lansering og opplæring",
-                },
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-alta-blue text-white flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div className="grid gap-6 md:grid-cols-4">
+              {process.map((item) => (
+                <div key={item.step} className="glass rounded-2xl p-6">
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-full border border-accent/30 bg-accent/5 font-mono text-xs text-accent">
                     {item.step}
                   </div>
-                  <h3 className="font-semibold text-alta-dark mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
+                  <h3 className="mb-2 font-semibold">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 px-4 bg-alta-blue text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Klar for å komme i gang?
-            </h2>
-            <p className="text-xl mb-8 text-blue-100">
-              La oss diskutere hvilke tjenester som passer best for din bedrift
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-alta-blue hover:bg-gray-100"
-              >
-                <Link href="/#contact">Få et tilbud</Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white bg-transparent text-white hover:bg-white hover:text-alta-blue"
-              >
-                <Link href="/priser">Se priser</Link>
-              </Button>
+        {/* CTA */}
+        <section className="px-6 py-24">
+          <div className="mx-auto max-w-4xl">
+            <div className="glass relative overflow-hidden rounded-3xl p-12 text-center md:p-16">
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 opacity-40"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(500px 200px at 50% 100%, color-mix(in oklab, hsl(var(--accent)) 30%, transparent), transparent 70%)",
+                }}
+              />
+              <h2 className="relative text-balance text-4xl font-extrabold tracking-tighter md:text-5xl">
+                Klar for å se hva som passer?
+              </h2>
+              <p className="relative mx-auto mt-5 max-w-md text-muted-foreground">
+                Uforpliktende prat, konkret forslag innen 24 timer.
+              </p>
+              <div className="relative mt-8 flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-tight text-accent-foreground transition-colors hover:bg-accent/90 shadow-[0_10px_40px_-10px_color-mix(in_oklab,hsl(var(--accent))_50%,transparent)]"
+                >
+                  Få et gratis forslag
+                  <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="/priser"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-7 py-3.5 text-sm font-semibold tracking-tight text-foreground transition-colors hover:bg-white/5"
+                >
+                  Se priser
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       </div>
+
       <Footer />
     </div>
   );

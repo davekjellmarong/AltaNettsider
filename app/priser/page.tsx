@@ -12,14 +12,13 @@ import {
 } from "@/src/utils/pricing";
 
 export const metadata: Metadata = {
-  title:
-    "Priser for Nettsider | Alta Nettsider - Transparente Priser for Lokale Bedrifter",
-  description: `Se våre konkurransedyktige priser for nettsider til lokale bedrifter i Alta og Finnmark. Startpakke fra ${STARTING_PRICE} kr. Ingen skjulte kostnader, transparent prising.`,
+  title: "Hva koster en nettside? — Priser for lokale bedrifter | AltaNettsider",
+  description: `Enkle, faste priser for lokale bedrifter i Alta som bruker Facebook i dag. Fra ${STARTING_PRICE} kr. Ingen skjulte kostnader.`,
   keywords:
-    "nettsider pris Alta, hjemmeside kostnad Finnmark, billige nettsider Norge, priser webutvikling Alta, nettsider for små bedrifter pris",
+    "nettside pris Alta, nettside for lokale bedrifter Alta, hva koster en nettside, nettside fast pris, liten bedrift nettside Finnmark",
   openGraph: {
-    title: "Priser for Nettsider | Alta Nettsider",
-    description: `Konkurransedyktige priser for nettsider til lokale bedrifter i Alta og Finnmark. Fra ${STARTING_PRICE} kr.`,
+    title: "Hva koster en nettside? — Priser for lokale bedrifter",
+    description: `Enkle, faste priser for lokale bedrifter i Alta. Fra ${STARTING_PRICE} kr, uten skjulte kostnader.`,
     url: "https://altanettsider.no/priser",
     type: "website",
   },

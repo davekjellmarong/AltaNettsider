@@ -47,7 +47,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     popular: false,
     buttonText: "Velg Startpakke",
-    ctaLink: "/#contact",
+    ctaLink: "/kontakt",
   },
   {
     id: "bedriftspakke",
@@ -66,7 +66,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     popular: true,
     buttonText: "Mest Populær",
-    ctaLink: "/#contact",
+    ctaLink: "/kontakt",
   },
   {
     id: "avansert",
@@ -87,7 +87,7 @@ export const PRICING_PLANS: PricingPlan[] = [
     ],
     popular: false,
     buttonText: "Kontakt for tilbud",
-    ctaLink: "/#contact",
+    ctaLink: "/kontakt",
   },
 ];
 

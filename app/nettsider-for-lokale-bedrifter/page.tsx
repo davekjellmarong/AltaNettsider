@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Pricing from "@/components/Pricing";
-import Portfolio from "@/components/Portfolio";
-import Link from "next/link";
+import PageBackground from "@/components/PageBackground";
+import {
+  MapPin,
+  Zap,
+  Wallet,
+  Facebook,
+  Search,
+  BarChart3,
+  Check,
+  Star,
+  Clock,
+  Phone,
+  ArrowRight,
+} from "lucide-react";
 import { STARTING_PRICE_FORMATTED, PRICING_PLANS } from "@/src/utils/pricing";
 
 export const metadata: Metadata = {
@@ -23,606 +33,401 @@ export const metadata: Metadata = {
   },
 };
 
+const HERO_BENEFITS = [
+  {
+    icon: MapPin,
+    title: "Lokal ekspertise",
+    description:
+      "Jeg forstår lokale bedrifter i Alta og hva som fungerer for kunder i Finnmark.",
+  },
+  {
+    icon: Zap,
+    title: "Rask levering",
+    description:
+      "Ferdig nettside på 1-2 uker. Perfekt for lokale bedrifter som vil komme raskt i gang.",
+  },
+  {
+    icon: Wallet,
+    title: "Transparente priser",
+    description: `Fra ${STARTING_PRICE_FORMATTED} for enkel nettside. Alle kostnader er klare på forhånd - ingen skjulte gebyrer.`,
+  },
+];
+
+const WHY_LOCAL = [
+  {
+    title: "Forstår lokale bedrifter",
+    body:
+      "Som lokaleier i Alta forstår jeg utfordringene små bedrifter møter. Jeg vet hva som fungerer for kunder i Finnmark og hvordan man når lokale kunder online.",
+  },
+  {
+    title: "Personlig oppfølging",
+    body:
+      "Når du velger en lokal utvikler får du personlig service. Vi kan møtes ansikt til ansikt, og jeg er alltid tilgjengelig for spørsmål og oppdateringer.",
+  },
+  {
+    title: "Lokal SEO-optimalisering",
+    body:
+      "Jeg optimaliserer nettsiden din for lokale søk i Alta og Finnmark. Dette betyr at kunder i området lettere finner din bedrift når de søker etter tjenestene dine.",
+  },
+  {
+    title: "Rask responstid",
+    body:
+      "Siden vi er i samme tidssone og geografiske område, får du rask respons på henvendelser og rask hjelp hvis noe skulle oppstå med nettsiden din.",
+  },
+  {
+    title: "Passer sammen med Facebook",
+    body:
+      "De fleste bedriftene jeg jobber med bruker allerede Facebook, og det fungerer bra for dem. Nettsiden jeg lager er ikke en erstatning — den jobber ved siden av Facebook-siden din, og gjør informasjonen din synlig for kunder som ikke bruker Facebook aktivt.",
+  },
+];
+
+const GMB_POINTS = [
+  {
+    title: "Synlig på Google Maps",
+    description:
+      "Kunder finner deg når de søker «frisør Alta» eller lignende.",
+  },
+  {
+    title: "Kundeanmeldelser",
+    description: "Få 5-stjernes anmeldelser som bygger tillit.",
+  },
+  {
+    title: "Gratis markedsføring",
+    description: "Del nyheter og tilbud direkte til lokale kunder.",
+  },
+];
+
+const ANALYTICS_POINTS = [
+  {
+    title: "Hvor mange besøker nettsiden din?",
+    description: "Se antall besøkende per dag, uke og måned.",
+  },
+  {
+    title: "Hvor kommer kundene fra?",
+    description: "Google, Facebook, direkte besøk eller andre nettsider.",
+  },
+  {
+    title: "Månedlige rapporter på norsk",
+    description:
+      "Enkle rapporter som viser om nettsiden fungerer for bedriften din.",
+  },
+];
+
 export default function NettisiderForLokaleBedrifterPage() {
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <PageBackground />
       <Navbar />
-      <div className="pt-20">
-        {/* SEO-optimized hero section */}
-        <section className="section bg-gradient-to-br from-alta-white to-alta-gray">
-          <div className="container-custom text-center max-w-4xl mx-auto">
-            <h1 className="heading-xl text-alta-dark mb-6">
+
+      <div className="pt-32">
+        {/* Hero */}
+        <section className="px-6 pb-20">
+          <div className="mx-auto max-w-4xl text-center">
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+              For bedrifter som allerede bruker Facebook
+            </span>
+            <h1 className="mt-4 text-balance text-5xl font-extrabold tracking-tighter md:text-6xl lg:text-7xl">
               Nettsider for{" "}
-              <span className="text-alta-blue">lokale bedrifter</span> i Alta og
-              Finnmark
+              <span className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
+                lokale bedrifter
+              </span>{" "}
+              i Alta og Finnmark
             </h1>
-            <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              Som spesialist på nettsider for lokale bedrifter, hjelper jeg små
-              bedrifter i Alta og Finnmark med å bli synlige på nett.
-              Profesjonelle nettsider som faktisk gir deg flere kunder - fra{" "}
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Som spesialist på nettsider for lokale bedrifter, hjelper jeg
+              små bedrifter i Alta og Finnmark med å bli synlige på nett.
+              Profesjonelle nettsider som faktisk gir deg flere kunder — fra{" "}
               {STARTING_PRICE_FORMATTED}.
             </p>
 
-            {/* Key benefits for local businesses */}
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white/70 rounded-lg p-6 shadow-sm">
-                <div className="w-12 h-12 bg-alta-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-6 h-6 text-alta-blue"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
+            {/* Key benefits */}
+            <div className="mt-14 grid gap-5 md:grid-cols-3">
+              {HERO_BENEFITS.map((b) => (
+                <div key={b.title} className="glass rounded-2xl p-6 text-left">
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-accent/10">
+                    <b.icon className="size-4 text-accent" />
+                  </div>
+                  <h3 className="mb-2 font-semibold">{b.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {b.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-alta-dark mb-2">
-                  Lokal ekspertise
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Jeg forstår lokale bedrifter i Alta og hva som fungerer for
-                  kunder i Finnmark.
-                </p>
-              </div>
-
-              <div className="bg-white/70 rounded-lg p-6 shadow-sm">
-                <div className="w-12 h-12 bg-alta-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-6 h-6 text-alta-blue"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-alta-dark mb-2">
-                  Rask levering
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Ferdig nettside på 1-2 uker. Perfekt for lokale bedrifter som
-                  vil komme raskt i gang.
-                </p>
-              </div>
-
-              <div className="bg-white/70 rounded-lg p-6 shadow-sm">
-                <div className="w-12 h-12 bg-alta-blue/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-6 h-6 text-alta-blue"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-alta-dark mb-2">
-                  Transparente priser
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  Fra {STARTING_PRICE_FORMATTED} for enkel nettside. Alle
-                  kostnader er klare på forhånd - ingen skjulte gebyrer.
-                </p>
-              </div>
+              ))}
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="mt-12 flex flex-wrap justify-center gap-3">
               <Link
                 href="/kontakt"
-                className="btn-primary py-4 px-8 text-lg font-semibold"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-tight text-accent-foreground transition-colors hover:bg-accent/90 shadow-[0_10px_40px_-10px_color-mix(in_oklab,hsl(var(--accent))_50%,transparent)]"
               >
                 Få gratis forslag nå
+                <ArrowRight className="size-4" />
               </Link>
               <Link
-                href="/eksempler"
-                className="btn-secondary py-4 px-8 text-lg font-semibold"
+                href="/kontakt"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-transparent px-7 py-3.5 text-sm font-semibold tracking-tight text-foreground transition-colors hover:bg-white/5"
               >
-                Se eksempler fra lokale bedrifter
+                Snakk med meg om eksempler
               </Link>
             </div>
 
-            {/* Local trust signals */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <p className="text-sm text-gray-500">
-                Basert i Alta, Finnmark • Personlig service til lokale bedrifter
+            <div className="mt-12 border-t border-border pt-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                Basert i Alta, Finnmark · Personlig service til lokale bedrifter
               </p>
             </div>
           </div>
         </section>
 
-        {/* Why choose local web developer section */}
-        <section className="section bg-white">
-          <div className="container-custom">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="heading-lg text-alta-dark mb-8">
+        {/* Why choose local */}
+        <section className="border-y border-border bg-white/[0.015] px-6 py-24">
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-14 text-center">
+              <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
                 Hvorfor velge en lokal utvikler for din bedrifts nettside?
               </h2>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-8 text-left">
-                <div>
-                  <h3 className="text-xl font-semibold text-alta-dark mb-4">
-                    Forstår lokale bedrifter
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    Som lokaleier i Alta forstår jeg utfordringene små bedrifter
-                    møter. Jeg vet hva som fungerer for kunder i Finnmark og
-                    hvordan man når lokale kunder online.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-alta-dark mb-4">
-                    Personlig oppfølging
-                  </h3>
-                  <p className="text-gray-600">
-                    Når du velger en lokal utvikler får du personlig service. Vi
-                    kan møtes ansikt til ansikt, og jeg er alltid tilgjengelig
-                    for spørsmål og oppdateringer.
+            <div className="grid gap-6 md:grid-cols-2">
+              {WHY_LOCAL.map((item) => (
+                <div key={item.title} className="glass rounded-2xl p-6">
+                  <h3 className="mb-3 text-lg font-semibold">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {item.body}
                   </p>
                 </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-alta-dark mb-4">
-                    Lokal SEO-optimalisering
-                  </h3>
-                  <p className="text-gray-600 mb-6">
-                    Jeg optimaliserer nettsiden din for lokale søk i Alta og
-                    Finnmark. Dette betyr at kunder i området lettere finner din
-                    bedrift når de søker etter tjenestene dine.
-                  </p>
-
-                  <h3 className="text-xl font-semibold text-alta-dark mb-4">
-                    Rask responstid
-                  </h3>
-                  <p className="text-gray-600">
-                    Siden vi er i samme tidssone og geografiske område, får du
-                    rask respons på henvendelser og rask hjelp hvis noe skulle
-                    oppstå med nettsiden din.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Digital Marketing Services Section */}
-        <section className="section bg-gradient-to-b from-gray-50 to-white">
-          <div className="container-custom">
-            <div className="text-center mb-16">
-              <h2 className="heading-lg text-alta-dark mb-4">
+        {/* More than a website */}
+        <section className="px-6 py-24">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-16 max-w-3xl text-center mx-auto">
+              <h2 className="text-balance text-4xl font-bold tracking-tight md:text-5xl">
                 Mer enn bare en nettside
               </h2>
-              <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                 Vi hjelper lokale bedrifter med å bli funnet og forstå sine
                 kunder gjennom kraftige Google-verktøy som de fleste ikke vet
                 om.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-              {/* Google My Business */}
+            {/* Google My Business row */}
+            <div className="mb-16 grid items-center gap-10 lg:grid-cols-2">
               <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
-                    <svg
-                      className="w-6 h-6 text-green-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="flex size-12 items-center justify-center rounded-full bg-accent/10">
+                    <MapPin className="size-5 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-alta-dark">
+                  <h3 className="text-2xl font-bold">
                     Google My Business Oppsett
                   </h3>
                 </div>
-
-                <p className="text-gray-700 text-lg mb-6">
-                  De fleste lokale bedrifter vet ikke at de kan dukke opp på
-                  Google Maps og få gratis anmeldelser. Vi setter opp din Google
-                  My Business-profil så kunder finner deg når de søker i Alta.
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  Mange bedrifter har en Google Maps-profil, men den er ofte
+                  ikke satt opp riktig — feil åpningstider, mangler bilder,
+                  eller ingen som svarer på anmeldelser. Vi setter opp og
+                  optimaliserer din Google My Business-profil, så kunder
+                  faktisk finner riktig informasjon når de søker i Alta.
                 </p>
-
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-green-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                <div className="mt-6 space-y-4">
+                  {GMB_POINTS.map((p) => (
+                    <div key={p.title} className="flex items-start gap-3">
+                      <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                        <Check className="size-3 text-accent" />
+                      </div>
+                      <div>
+                        <p className="font-medium">{p.title}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {p.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Synlig på Google Maps
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Kunder finner deg når de søker "frisør Alta" eller
-                        lignende
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-green-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Kundeanmeldelser
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Få 5-stjernes anmeldelser som bygger tillit
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-green-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Gratis markedsføring
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Del nyheter og tilbud direkte til lokale kunder
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Google My Business Visual */}
+              {/* Google My Business mockup */}
               <div className="relative">
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-                  <div className="text-center mb-4">
-                    <div className="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-2 flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">G</span>
+                <div className="glass rounded-2xl p-6">
+                  <div className="mb-4 text-center">
+                    <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full bg-accent/20 text-lg font-bold text-accent">
+                      G
                     </div>
-                    <h4 className="font-semibold text-gray-800">
-                      Eks: Alta Frisørsalong
-                    </h4>
-                    <div className="flex justify-center mt-2">
-                      <div className="flex text-yellow-400">★★★★★</div>
-                      <span className="text-sm text-gray-600 ml-2">
+                    <h4 className="font-semibold">Eks: Din Bedrift AS</h4>
+                    <div className="mt-2 flex items-center justify-center gap-2">
+                      <div className="flex text-accent">
+                        {[1, 2, 3, 4, 5].map((i) => (
+                          <Star
+                            key={i}
+                            className="size-3.5"
+                            fill="currentColor"
+                          />
+                        ))}
+                      </div>
+                      <span className="text-xs text-muted-foreground">
                         4.8 (23 anmeldelser)
                       </span>
                     </div>
                   </div>
 
                   <div className="space-y-3 text-sm">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-4 h-4 text-gray-500 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                      </svg>
-                      <span className="text-gray-700">
-                        Markens gate 5, 9510 Alta
+                    <div className="flex items-center gap-2">
+                      <MapPin className="size-3.5 text-muted-foreground" />
+                      <span className="text-foreground/90">
+                        Eksempelveien 1, 9510 Alta
                       </span>
                     </div>
-                    <div className="flex items-center">
-                      <svg
-                        className="w-4 h-4 text-gray-500 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                        />
-                      </svg>
-                      <span className="text-gray-700">+47 78 12 34 56</span>
+                    <div className="flex items-center gap-2">
+                      <Phone className="size-3.5 text-muted-foreground" />
+                      <span className="text-foreground/90">
+                        +47 000 00 000
+                      </span>
                     </div>
-                    <div className="flex items-center">
-                      <svg
-                        className="w-4 h-4 text-gray-500 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <span className="text-green-600 font-medium">
-                        Åpent • Stenger 17:00
+                    <div className="flex items-center gap-2">
+                      <Clock className="size-3.5 text-muted-foreground" />
+                      <span className="font-medium text-accent">
+                        Åpent · Stenger 17:00
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-gray-200">
-                    <div className="grid grid-cols-2 gap-2">
-                      <button className="bg-blue-500 text-white py-2 px-4 rounded text-sm font-medium">
-                        Ring
-                      </button>
-                      <button className="bg-gray-100 text-gray-700 py-2 px-4 rounded text-sm font-medium">
-                        Veibeskrivelse
-                      </button>
+                  <div className="mt-4 grid grid-cols-2 gap-2 border-t border-border pt-4">
+                    <div className="rounded-lg bg-accent/15 py-2 text-center text-sm font-medium text-accent">
+                      Ring
+                    </div>
+                    <div className="rounded-lg border border-border py-2 text-center text-sm font-medium text-foreground">
+                      Veibeskrivelse
                     </div>
                   </div>
                 </div>
 
-                <div className="absolute -top-2 -right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                  GRATIS!
+                <div className="absolute -right-2 -top-2 rounded-full bg-accent px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-accent-foreground">
+                  Gratis!
                 </div>
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Analytics Visual */}
-              <div className="lg:order-2">
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="font-semibold text-gray-800">
-                      Nettside Statistikk
-                    </h4>
-                    <span className="text-xs text-gray-500">
-                      Siste 30 dager
+            {/* Analytics row */}
+            <div className="grid items-center gap-10 lg:grid-cols-2">
+              {/* Analytics mockup */}
+              <div className="glass rounded-2xl p-6 lg:order-2">
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-semibold">Nettside Statistikk</h4>
+                    <span className="rounded-full bg-accent/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-accent">
+                      Eksempel
                     </span>
                   </div>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    Siste 30 dager
+                  </span>
+                </div>
 
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-blue-600">
-                        847
-                      </div>
-                      <div className="text-xs text-gray-600">Besøkende</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">
-                        23
-                      </div>
-                      <div className="text-xs text-gray-600">Kontakter</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-purple-600">
-                        73%
-                      </div>
-                      <div className="text-xs text-gray-600">Fra Alta</div>
+                <div className="mb-6 grid grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">847</div>
+                    <div className="text-xs text-muted-foreground">
+                      Besøkende
                     </div>
                   </div>
-
-                  {/* Simple chart visualization */}
-                  <div className="space-y-2">
-                    <div className="flex items-center">
-                      <span className="text-xs text-gray-600 w-16">Google</span>
-                      <div className="flex-1 bg-gray-200 rounded-full h-2 mx-2">
-                        <div
-                          className="bg-blue-500 h-2 rounded-full"
-                          style={{ width: "65%" }}
-                        ></div>
-                      </div>
-                      <span className="text-xs text-gray-600">65%</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-xs text-gray-600 w-16">
-                        Direkte
-                      </span>
-                      <div className="flex-1 bg-gray-200 rounded-full h-2 mx-2">
-                        <div
-                          className="bg-green-500 h-2 rounded-full"
-                          style={{ width: "25%" }}
-                        ></div>
-                      </div>
-                      <span className="text-xs text-gray-600">25%</span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-xs text-gray-600 w-16">
-                        Facebook
-                      </span>
-                      <div className="flex-1 bg-gray-200 rounded-full h-2 mx-2">
-                        <div
-                          className="bg-purple-500 h-2 rounded-full"
-                          style={{ width: "10%" }}
-                        ></div>
-                      </div>
-                      <span className="text-xs text-gray-600">10%</span>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">23</div>
+                    <div className="text-xs text-muted-foreground">
+                      Kontakter
                     </div>
                   </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent">73%</div>
+                    <div className="text-xs text-muted-foreground">
+                      Fra Alta
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  {[
+                    { label: "Google", value: 65 },
+                    { label: "Direkte", value: 25 },
+                    { label: "Facebook", value: 10 },
+                  ].map((source) => (
+                    <div key={source.label} className="flex items-center gap-2">
+                      <span className="w-16 text-xs text-muted-foreground">
+                        {source.label}
+                      </span>
+                      <div className="h-2 flex-1 rounded-full bg-white/10">
+                        <div
+                          className="h-2 rounded-full bg-accent"
+                          style={{ width: `${source.value}%` }}
+                        />
+                      </div>
+                      <span className="text-xs text-muted-foreground">
+                        {source.value}%
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Analytics Description */}
               <div className="lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
-                    <svg
-                      className="w-6 h-6 text-blue-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 00-2-2z"
-                      />
-                    </svg>
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="flex size-12 items-center justify-center rounded-full bg-accent/10">
+                    <BarChart3 className="size-5 text-accent" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-alta-dark">
-                    Google Analytics & Rapporter
+                  <h3 className="text-2xl font-bold">
+                    Google Analytics &amp; Rapporter
                   </h3>
                 </div>
-
-                <p className="text-gray-700 text-lg mb-6">
+                <p className="text-lg leading-relaxed text-muted-foreground">
                   Få innsikt i hvem som besøker nettsiden din. Vi setter opp
                   Google Analytics og sender deg månedlige rapporter på norsk
                   som viser hvor mange kunder du får fra nettsiden.
                 </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-blue-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                <div className="mt-6 space-y-4">
+                  {ANALYTICS_POINTS.map((p) => (
+                    <div key={p.title} className="flex items-start gap-3">
+                      <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15">
+                        <Check className="size-3 text-accent" />
+                      </div>
+                      <div>
+                        <p className="font-medium">{p.title}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {p.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Hvor mange besøker nettsiden din?
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Se antall besøkende per dag, uke og måned
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-blue-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Hvor kommer kundene fra?
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Google, Facebook, direkte besøk eller andre nettsider
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-3 mt-1">
-                      <svg
-                        className="w-3 h-3 text-blue-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-medium text-alta-dark">
-                        Månedlige rapporter på norsk
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        Enkle rapporter som viser om nettsiden fungerer for
-                        bedriften din
-                      </p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            <div className="text-center mt-16">
-              <div className="bg-alta-blue/5 rounded-xl p-8 max-w-3xl mx-auto">
-                <h3 className="text-xl font-semibold text-alta-dark mb-4">
+            {/* Bottom "Inkludert" callout */}
+            <div className="mt-16 text-center">
+              <div className="glass mx-auto max-w-3xl rounded-3xl p-10">
+                <h3 className="text-xl font-semibold">
                   Inkludert i alle pakker fra {PRICING_PLANS[1].name} (
                   {PRICING_PLANS[1].price} kr)
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="mt-4 text-muted-foreground">
                   Google My Business oppsett og Analytics er inkludert uten
-                  ekstra kostnad. Vi hjelper deg å forstå og forbedre din online
-                  tilstedeværelse.
+                  ekstra kostnad. Vi hjelper deg å forstå og forbedre din
+                  online tilstedeværelse.
                 </p>
-                <Link href="/kontakt" className="btn-primary text-lg px-8 py-4">
+                <Link
+                  href="/kontakt"
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold tracking-tight text-accent-foreground transition-colors hover:bg-accent/90"
+                >
                   Få gratis forslag på komplett pakke
+                  <ArrowRight className="size-4" />
                 </Link>
               </div>
             </div>
           </div>
         </section>
 
-        <HowItWorks />
-        <Pricing />
-        <Portfolio />
       </div>
       <Footer />
     </div>
