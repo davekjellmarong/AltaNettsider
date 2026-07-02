@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/sections/Hero";
-import Problem from "@/components/sections/Problem";
-import Solution from "@/components/sections/Solution";
 import Example from "@/components/sections/Example";
+import Problem from "@/components/sections/Problem";
 import Origin from "@/components/sections/Origin";
 import WhyDave from "@/components/sections/WhyDave";
 import Projects from "@/components/sections/Projects";
@@ -17,9 +16,8 @@ export default function Home() {
       <PageBackground />
       <Navbar />
       <Hero />
-      <Problem />
-      <Solution />
       <Example />
+      <Problem />
       <Origin />
       <WhyDave />
       <Projects />

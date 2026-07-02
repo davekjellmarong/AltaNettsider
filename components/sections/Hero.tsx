@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Facebook } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -71,60 +70,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Facebook → Website visual */}
-        <div className="relative mt-24 md:mt-32">
-          <div
-            aria-hidden="true"
-            className="absolute -top-32 right-0 size-[480px] animate-glow-pulse rounded-full bg-accent/15 blur-[140px]"
-          />
-          <div className="grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
-            {/* Facebook side */}
-            <div className="glass overflow-hidden rounded-xl shadow-2xl">
-              <div className="flex items-center gap-3 border-b border-white/5 bg-white/[0.03] px-4 py-3">
-                <Facebook className="size-4 text-[#1877F2]" />
-                <div className="font-mono text-[10px] tracking-wider text-muted-foreground">
-                  facebook.com / din-bedrift
-                </div>
-              </div>
-              <div className="space-y-3 p-6">
-                <div className="h-3 w-1/2 rounded bg-white/10" />
-                <div className="h-3 w-3/4 rounded bg-white/10" />
-                <div className="h-20 w-full rounded bg-white/[0.04]" />
-                <div className="h-3 w-2/3 rounded bg-white/10" />
-                <div className="h-3 w-1/3 rounded bg-white/10" />
-              </div>
-            </div>
-
-            {/* Arrow */}
-            <div className="hidden md:flex flex-col items-center gap-2">
-              <ArrowRight className="size-8 text-accent" />
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-accent">
-                henter inn alt
-              </span>
-            </div>
-
-            {/* Website side */}
-            <div className="glass glow-accent overflow-hidden rounded-xl shadow-2xl">
-              <div className="flex items-center gap-3 border-b border-white/5 bg-white/[0.03] px-4 py-3">
-                <div className="flex gap-1.5">
-                  <div className="size-2.5 rounded-full bg-white/15" />
-                  <div className="size-2.5 rounded-full bg-white/15" />
-                  <div className="size-2.5 rounded-full bg-white/15" />
-                </div>
-                <div className="ml-2 flex-1 truncate rounded-md bg-white/[0.04] px-3 py-1 font-mono text-[10px] tracking-wider text-muted-foreground">
-                  din-bedrift.no
-                </div>
-              </div>
-              <Image
-                src="/dindrenering.png"
-                alt="Forhåndsvisning av profesjonell nettside"
-                width={1920}
-                height={1080}
-                className="aspect-video w-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
