@@ -214,9 +214,19 @@ export default function ServicesPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
               Ingen tekniske omveier. Ingen skjulte moduler du må kjøpe
-              senere. Her er hva du faktisk får — for lokale bedrifter i Alta
-              som bruker Facebook i dag, og som vil ha en profesjonell
-              nettside i tillegg.
+              senere. Her er hva du faktisk får når jeg bygger nettside for
+              en lokal bedrift i Alta — særlig hvis du bruker Facebook i dag
+              og vil ha en profesjonell nettside i tillegg.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+              Sammenlign gjerne med{" "}
+              <Link
+                href="/nettsider-for-lokale-bedrifter"
+                className="text-foreground underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+              >
+                oversikten over nettsider for lokale bedrifter i Alta
+              </Link>{" "}
+              — samme sak, mer om selve fordelene ved en lokal utvikler.
             </p>
           </div>
         </section>

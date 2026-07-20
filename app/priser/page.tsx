@@ -77,15 +77,32 @@ export default function PricingPage() {
               Transparente priser
             </span>
             <h1 className="mt-4 text-balance text-5xl font-extrabold tracking-tighter md:text-6xl lg:text-7xl">
-              Priser for{" "}
+              Hva koster en nettside for en{" "}
               <span className="bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent">
-                profesjonelle nettsider.
+                lokal bedrift i Alta?
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
               Jeg tilpasser løsningene til dine behov og budsjett. Her får du
               en oversikt over mine hovedpakker for nettsider til lokale
               bedrifter i Alta og Finnmark.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-sm text-muted-foreground">
+              Usikker på hvilken pakke som passer?{" "}
+              <Link
+                href="/nettsider-for-lokale-bedrifter"
+                className="text-foreground underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+              >
+                Se mer om nettsider for lokale bedrifter i Alta
+              </Link>{" "}
+              — eller les artikkelen{" "}
+              <Link
+                href="/articles/hvor-mye-koster-en-nettside"
+                className="text-foreground underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+              >
+                «Hvor mye koster en nettside egentlig?»
+              </Link>
+              .
             </p>
           </div>
         </section>
